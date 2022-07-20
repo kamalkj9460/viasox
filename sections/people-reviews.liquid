@@ -1,0 +1,114 @@
+<div class="people-reviews-section" id="bg-image">
+  <div class="page-width">
+    {%- if section.settings.title != blank -%}
+    <div class="section__title">
+      <h2 class="title {{ section.settings.heading_size }}">{{ section.settings.title }}</h2>
+    </div>
+    {%- endif -%}  
+    <div class="people-reviews-wrap">
+      <div class="people-reviews-slider">
+        {% for block in section.blocks %}
+        <div>
+        <div class="prs-item">  
+          <div class="prs-title-stars">
+            <div class="prs-stars">
+              <span>{% include 'icon-star' %}</span>
+              <span>{% include 'icon-star' %}</span>
+              <span>{% include 'icon-star' %}</span>
+              <span>{% include 'icon-star' %}</span>
+              <span>{% include 'icon-star' %}</span>
+            </div>
+            <div>5 Star Review</div>
+          </div>
+          <div class="prs-name"><b>{{ block.settings.title }}</b></div>
+          <div class="prs-content">
+            {{ block.settings.text }}
+          </div>
+        </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+<style>
+  @media screen and (max-width: 600px) {
+  #bg-image{
+      background-image:url('{{ section.settings.image_2 | img_url: '600X' }}');
+     }
+  }
+  @media screen and (min-width: 600px) {
+    #bg-image{
+      background-image:url('{{ section.settings.image_1 | img_url: '1920X' }}');
+     }
+  }
+</style>
+{% schema %}
+  {
+    "name": "People Reviews",
+    "class": "section",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "default": "Reviews",
+        "label": "Heading"
+      },
+{
+  "type": "image_picker",
+  "id": "image_1",
+  "label": "Image",
+  "info": "Size: 600+"
+  },
+  {
+  "type": "image_picker",
+  "id": "image_2",
+  "label": "Image Mobile",
+  "info": "Size: 600 and below"
+  },
+      {
+        "type": "select",
+        "id": "heading_size",
+        "options": [
+          {
+            "value": "h2",
+            "label": "t:sections.all.heading_size.options__1.label"
+          },
+          {
+            "value": "h1",
+            "label": "t:sections.all.heading_size.options__2.label"
+          },
+          {
+            "value": "h0",
+            "label": "t:sections.all.heading_size.options__3.label"
+          }
+        ],
+        "default": "h1",
+        "label": "t:sections.all.heading_size.label"
+      }
+	],
+    "blocks": [
+      {
+        "type": "text",
+        "name": "Review",
+        "settings": [
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Name"
+          },
+          {
+            "type": "textarea",
+            "id": "text",
+            "label": "Text"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "People Reviews"
+      }
+    ]
+  }
+{% endschema %}

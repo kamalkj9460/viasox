@@ -1,0 +1,273 @@
+<script id="aovo_CartTemplate" type="text/template">
+{% raw %}
+<div class="aovo-free-shipping">
+  <div class="aovo-shiping-wrap">
+    <h4 class="aovo-title-message"> 
+    {{{spendAndMessage}}}
+    </h4>
+    <div class="aovo-shiping-progress">
+      <div class="aovo-progress-bar">
+        <div id="aovo_my_bar" style="width: {{aovo-process-bar}}%;"></div>
+      </div>
+      <div class="aovo-freeshipping-part">
+        <div class="aovo-part-one aovo-shipping-status">
+          <span class="aovo-price" style="font-weight: 700; margin-left: 5px;">$0</span>
+          <div class="aovo-shipping-icon png-first-icon" style="margin-top: 17px; margin-left: -2px;">
+            <div class="aovo-img">
+              <img src="{{image1}}" alt="">
+            </div>
+          </div>
+        </div>
+        <div class="aovo-part-two">
+          <div class="aovo-first-step aovo-steps {{aovo-step-one}}">
+            <span class="aovo-price">${{price1}}</span>
+            <div class="aovo-shipping-icon">
+              <div class="aovo-img">
+                {{{image2}}}
+              </div>
+            </div>
+            <p>{{message1}}</p>
+          </div>
+          <div class="aovo-second-step aovo-steps {{aovo-step-two}}">
+            <span class="aovo-price">${{price2}}</span>
+            <div class="aovo-shipping-icon">
+              <div class="aovo-img">
+                {{{image3}}}
+              </div>
+            </div>
+            <p>{{message2}}</p>
+          </div>
+          <div class="aovo-third-step aovo-steps {{aovo-step-three}}">
+            <span class="aovo-price">${{price3}}</span>
+            <div class="aovo-shipping-icon">
+              <div class="aovo-img">
+                {{{image4}}}
+              </div>
+            </div>
+            <p>{{message3}}</p>
+          </div>
+          <div class="aovo-fourth-step aovo-steps {{aovo-step-four}}">
+            <span class="aovo-price">${{price4}}</span>
+            <div class="aovo-shipping-icon">
+              <div class="aovo-img">
+               {{{image5}}}
+              </div>
+            </div>
+            <p>{{message4}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endraw %}
+</script>
+<style>
+  *{
+    box-sizing: border-box;
+  }
+  .aovo-free-shipping{
+    display:none;
+  }
+  .aovo-free-shipping .aovo-shiping-wrap {
+    max-width: 550px;
+    margin: 10px auto;
+    padding: 5px 15px 0;
+  }
+  .aovo-free-shipping h4 {
+    text-align: center;
+    font-weight: 700;
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+  .aovo-free-shipping h4 span {
+    color: #f18345;
+  }
+  .aovo-shiping-progress {
+    padding: 50px 0 0;
+    position: relative;
+    max-width: 90%;
+    margin-left: 8px;
+  }
+  .aovo-shiping-progress .aovo-progress-bar {
+    width: 100%;
+/*     width: 75%; */
+    background-color: transparent;
+    border-radius: 15px;
+    height: 22px;
+    float: left;
+    border: 2px solid #94D1F4;
+    position: absolute;
+  }
+  div#aovo_my_bar {
+    height: 18px;
+    border-radius: 15px;
+    background: #94d1f4;
+    background: -moz-linear-gradient(left, #94d1f4 0%, #f7ad88 100%);
+    background: -webkit-linear-gradient(left, #94d1f4 0%,#f7ad88 100%);
+    background: linear-gradient(to right, #94d1f4 0%,#f7ad88 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#94d1f4', endColorstr='#f7ad88',GradientType=1 );
+    transition: all .6s cubic-bezier(0.4, 0.0, 0.2, 1);
+  }
+  .aovo-freeshipping-part {
+    display: flex;
+    margin: -46px 0 0;
+    position: relative;
+  }
+  .aovo-part-one.aovo-shipping-status {
+    position: relative;
+    flex: 0 0 15%;
+  }
+  .aovo-part-one .aovo-shipping-icon img { 
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;
+    border-radius: 50%;
+  }
+  .aovo-part-two {
+    display: flex;
+    text-align: center;
+    text-align: -webkit-center;
+    flex: 0 0 100%;
+  }
+  .aovo-part-two p {
+    font-size: 15px;
+    color: black;
+  }
+  .aovo-steps .aovo-price {
+    align-items: center;
+    font-weight: 700;
+    display: block;
+  }
+  .aovo-steps .aovo-shipping-icon .aovo-img {
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    -webkit-box-shadow: 0 0 10px 5px rgb(247 173 136);
+    box-shadow: 0 0 10px 5px rgb(247 173 136);
+    margin: 0 auto;
+    background: #fff;
+  }
+  .aovo-steps .aovo-shipping-icon .aovo-img svg{
+    width: 26px !important;
+  }
+  .aovo-part-two .aovo-steps {
+    flex: 0 0 33%;
+/*     flex: 0 0 25%; */
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+  }
+  .aovo-near-step {
+    margin: 1px 0 0;
+    row-gap: 7px !important;
+  }
+  .aovo-near-step .aovo-shipping-icon .aovo-img {
+    width: 50px;
+    height: 50px;
+    -webkit-box-shadow: 0 0 10px 5px rgb(247 173 136);
+    box-shadow: 0 0 10px 5px rgb(255 141 85);
+  }
+  .aovo-near-step .aovo-shipping-icon .aovo-img svg{
+    width: 32px !important;
+  }
+  
+  .aovo-step-activate .aovo-shipping-icon .aovo-img{
+    /*       -webkit-box-shadow: unset;
+    box-shadow: unset; */
+/*     background: #f07743; */
+    background: #93d1f3;
+    background-image: url(https://cdn.shopify.com/s/files/1/0493/1672/4889/t/1/assets/check-mark_1024x1024.png?v=9307187160972422788);
+    background-position: center;
+    background-repeat: no-repeat;
+    -webkit-box-shadow: unset;
+    box-shadow: unset;
+  }
+  .aovo-step-activate .aovo-shipping-icon .aovo-img svg {
+    display: none;
+  }
+  .aovo-step-activate .aovo-shipping-icon .aovo-img svg path {
+    fill: #fff !important;
+  }
+  @media screen and (max-width: 1920px) {
+    .aovo-part-two p {
+      font-size: 13px;
+    }
+/*     .aovo-shipping-icon.png-first-icon .aovo-img { 
+      margin-top: 21px;
+    }
+    .aovo-steps.aovo-step-activate .aovo-shipping-icon,
+    .aovo-steps .aovo-shipping-icon,
+	.aovo-steps.aovo-near-step .aovo-shipping-icon{
+      margin-top: 8px;
+    } */
+    .aovo-free-shipping h4 {
+      font-size: 14px;
+    }
+    
+/*     Extra code for hardcoded */
+    .aovo-near-step .aovo-shipping-icon .aovo-img {
+      width: 42px;
+      height: 42px;
+    }
+    .aovo-near-step .aovo-shipping-icon .aovo-img svg{
+      width: 28px !important;
+    }
+    .aovo-steps .aovo-shipping-icon .aovo-img {
+      width: 38px;
+      height: 38px;
+    }
+    .aovo-steps .aovo-shipping-icon .aovo-img svg{
+      width: 24px !important;
+    }
+    .aovo-freeshipping-part {
+   	  margin: -10.5% 0 0;
+    }
+    .aovo-near-step {
+      margin: 0px 0 0;
+      row-gap: 10px !important;;
+    }
+    .aovo-shipping-icon.png-first-icon {
+      margin-top: 15px !important; 
+    }
+  }
+  
+/*    Extra code added */
+  @media screen and (max-width: 1024px) {
+    .aovo-freeshipping-part {
+   	  margin: -12.5% 0 0;
+    }
+  }
+  @media screen and (max-width: 768px) {
+    .aovo-freeshipping-part {
+   	  margin: -8.5% 0 0;
+    }
+  }
+  @media screen and (max-width: 767px) {
+    .aovo-freeshipping-part {
+   	  margin: -12.5% 0 0;
+    }
+  }
+  .aovo-fourth-step{
+  	display:none !important;
+  }
+  .grid__item.small--one-quarter.medium--one-quarter.large--one-quarter.medium--display-table-cell, 
+  .grid__item.small--one-half.medium--one-half.large--one-half.medium--display-table-cell {
+    margin-top: 0 !important;
+  }
+  .ajaxcart__footer:first-child {
+    margin: 0;
+  }
+  .ajaxcart__footer-wrapper {
+    margin-top: 0 !important;
+    margin-bottom: 20px !important;
+  }
+  
+  
+/*   Extra code */
+  div#aovo_cart_widget {
+    margin-left: -15px;
+    margin-right: 10px;
+  }
+</style>

@@ -1,0 +1,418 @@
+{{ 'quiz.css' | asset_url | stylesheet_tag }}
+
+<div id="quiz-section" class="quiz__compression-socks">
+  <div class="page-width">
+    
+    <div class="quiz_wrap">
+    <div class="quiz__header center">
+      <h2 class="title h1">QUIZ</h2>
+      <p>Get the perfect pair of socks in less than 30 seconds!</p>
+    </div>
+    
+    <div class="quiz-dots">
+      <ul>
+        <li class="active"></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
+    </div>
+    
+    <div class="quiz-content">
+      <div class="quiz-question active" data-que-no="1">
+        <div class="quiz-que">
+          <h3>Do you have any of the following conditions?</h3>
+          <p>Please select all that apply</p>
+        </div>
+        <div class="quiz-ans">
+          <div class="quiz-product_selector">
+            
+            <div class="selector_option">
+                <input type="checkbox" id="option-a">
+                <label for="option-a" class="selector_label">
+                  <img src="https://cdn.shopify.com/s/files/1/0253/3641/4261/files/Nueropathy-Small.jpg?v=1654715032">
+                  <p>Neuropathy Or Diabetic Neuropathy</p>
+                </label>
+              </div>
+
+              <div class="selector_option">
+                <input type="checkbox" id="option-b">
+                <label for="option-b" class="selector_label">
+                  <img src="https://cdn.shopify.com/s/files/1/0253/3641/4261/files/Edema-Small.jpg?v=1654715032">
+                  <p>Edema</p>
+                </label>
+              </div>
+              
+              <div class="selector_option">
+                <input type="checkbox" id="option-c">
+                <label for="option-c" class="selector_label">
+                  <img src="https://cdn.shopify.com/s/files/1/0253/3641/4261/files/Foot_ulcers-Small.jpg?v=1654715032">
+                  <p>Foot Ulcers</p>
+                </label>
+              </div>
+              
+              <div class="selector_option">
+                <input type="checkbox" id="option-d">
+                <label for="option-d" class="selector_label">
+                  <img src="https://cdn.shopify.com/s/files/1/0253/3641/4261/files/Plantar-Small.jpg?v=1654715032">
+                  <p>Plantar Fasciitis</p>
+                </label>
+              </div>
+              
+              <div class="selector_option">
+                <input type="checkbox" id="option-e">
+                <label for="option-e" class="selector_label">
+                  <img src="https://cdn.shopify.com/s/files/1/0253/3641/4261/files/Swollen-Small.jpg?v=1654715032">
+                  <p>Swollen Legs and/or feet</p>
+                </label>
+              </div>
+              
+              <div class="selector_option">
+                <input type="checkbox" id="option-f">
+                <label for="option-f" class="selector_label">
+                  <img src="https://cdn.shopify.com/s/files/1/0253/3641/4261/files/Varicose_Veins-Small.jpg?v=1654715032">
+                  <p>Varicose Veins</p>
+                </label>
+              </div>
+              
+             
+                          
+          </div>
+        </div>
+        <div class="quiz-next-btn">
+          <span data-que-no="1" class="button">Continue</span>
+        </div>
+         <div class="selector_option  selector_option_none">
+                <input type="checkbox" id="option-g">
+                <label for="option-g" class="selector_label">
+                  <p>None of The Above</p>
+                </label>
+              </div>
+      </div>
+      
+      <div class="quiz-question" data-que-no="2">
+        <div class="quiz-que">
+          <h3>Do you sit or stand for long periods of time?</h3>
+        </div>
+        <div class="quiz-ans">
+          <div class="radio-selector">
+            
+                <input id="ans-yes" name="ans" value="yes" type="radio">
+                <label for="ans-yes">Yes</label>
+             
+                <input id="ans-no" name="ans" value="no" type="radio">
+                <label for="ans-no">No</label>
+            
+          </div>
+        </div>
+        <div class="quiz-next-btn">
+          <span data-que-no="2" class="button">Continue</span>
+        </div>
+        <div class="quiz-back-btn">
+          <span  data-que-no="2">
+            <svg width="34" height="16" viewBox="0 0 34 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M0.292893 7.29289C-0.0976311 7.68342 -0.0976311 8.31658 0.292893 8.70711L6.65685 15.0711C7.04738 15.4616 7.68054 15.4616 8.07107 15.0711C8.46159 14.6805 8.46159 14.0474 8.07107 13.6569L2.41421 8L8.07107 2.34315C8.46159 1.95262 8.46159 1.31946 8.07107 0.928932C7.68054 0.538408 7.04738 0.538408 6.65685 0.928932L0.292893 7.29289ZM33 9C33.5523 9 34 8.55228 34 8C34 7.44772 33.5523 7 33 7V9ZM1 9H33V7H1V9Z" fill="#48C2FF"/>
+            </svg>
+            Back
+          </span>
+        </div>
+      </div>
+      
+      <div class="quiz-question" data-que-no="3">
+        <div class="quiz-que">
+          <h3>When do your legs and/or feet hurt the most?</h3>
+          <p>(Choose all that apply)</p>
+        </div>
+        <div class="quiz-ans">
+          <div class="design_selector">
+            
+              <div class="design_option">
+                <input id="design-1" type="checkbox">
+                <label for="design-1"><span>During the day</span></label>
+              </div>
+              
+              <div class="design_option">
+                <input id="design-2" type="checkbox">
+                <label for="design-2"><span>During the night</span></label>
+              </div>
+              
+              <div class="design_option">
+                <input id="design-3" type="checkbox">
+                <label for="design-3"><span>All the time</span></label>
+              </div>
+              
+              <div class="design_option">
+                <input id="design-4" type="checkbox">
+                <label for="design-4"><span>They don’t hurt at all</span></label>
+              </div>
+                                     
+          </div>
+        </div>
+        <div class="quiz-next-btn">
+          <span data-que-no="3" class="button">Continue</span>
+        </div>
+        <div class="quiz-back-btn">
+          <span data-que-no="3">
+            <svg width="34" height="16" viewBox="0 0 34 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M0.292893 7.29289C-0.0976311 7.68342 -0.0976311 8.31658 0.292893 8.70711L6.65685 15.0711C7.04738 15.4616 7.68054 15.4616 8.07107 15.0711C8.46159 14.6805 8.46159 14.0474 8.07107 13.6569L2.41421 8L8.07107 2.34315C8.46159 1.95262 8.46159 1.31946 8.07107 0.928932C7.68054 0.538408 7.04738 0.538408 6.65685 0.928932L0.292893 7.29289ZM33 9C33.5523 9 34 8.55228 34 8C34 7.44772 33.5523 7 33 7V9ZM1 9H33V7H1V9Z" fill="#48C2FF"/>
+            </svg>
+            Back
+          </span>
+        </div>
+      </div>   
+      
+      <div class="quiz-question" data-que-no="4">
+        <div class="quiz-que">
+          <h3>Are your legs constantly feeling heavy? </h3>
+        </div>
+        <div class="quiz-ans">
+          <div class="radio-selector">
+              
+                <input id="ans-yes2" name="ans2" value="yes" type="radio">
+                <label for="ans-yes2">Yes</label>
+             
+                <input id="ans-no2" name="ans2" value="no" type="radio">
+                <label for="ans-no2">No</label>
+              
+          </div>
+        </div>
+        <div class="quiz-next-btn">
+          <span data-que-no="4" class="button">Continue</span>
+        </div>
+        <div class="quiz-back-btn">
+          <span data-que-no="4">
+            <svg width="34" height="16" viewBox="0 0 34 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M0.292893 7.29289C-0.0976311 7.68342 -0.0976311 8.31658 0.292893 8.70711L6.65685 15.0711C7.04738 15.4616 7.68054 15.4616 8.07107 15.0711C8.46159 14.6805 8.46159 14.0474 8.07107 13.6569L2.41421 8L8.07107 2.34315C8.46159 1.95262 8.46159 1.31946 8.07107 0.928932C7.68054 0.538408 7.04738 0.538408 6.65685 0.928932L0.292893 7.29289ZM33 9C33.5523 9 34 8.55228 34 8C34 7.44772 33.5523 7 33 7V9ZM1 9H33V7H1V9Z" fill="#48C2FF"/>
+            </svg>
+            Back
+          </span>
+        </div>
+      </div>     
+      
+      <div class="quiz-question" data-que-no="5">
+        <div class="quiz-que">
+          <h3>Are you happy with the way your legs and feet look?</h3>
+        </div>
+        <div class="quiz-ans">
+          <div class="radio-selector">
+              
+                <input id="ans-yes3" name="ans3" value="yes" type="radio">
+                <label for="ans-yes3">Yes</label>
+             
+                <input id="ans-no3" name="ans3" value="no" type="radio">
+                <label for="ans-no3">No</label>
+              
+          </div>
+        </div>
+        <div class="quiz-next-btn">
+          <span data-que-no="5" class="button">Continue</span>
+        </div>
+        <div class="quiz-back-btn">
+          <span data-que-no="5">
+            <svg width="34" height="16" viewBox="0 0 34 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M0.292893 7.29289C-0.0976311 7.68342 -0.0976311 8.31658 0.292893 8.70711L6.65685 15.0711C7.04738 15.4616 7.68054 15.4616 8.07107 15.0711C8.46159 14.6805 8.46159 14.0474 8.07107 13.6569L2.41421 8L8.07107 2.34315C8.46159 1.95262 8.46159 1.31946 8.07107 0.928932C7.68054 0.538408 7.04738 0.538408 6.65685 0.928932L0.292893 7.29289ZM33 9C33.5523 9 34 8.55228 34 8C34 7.44772 33.5523 7 33 7V9ZM1 9H33V7H1V9Z" fill="#48C2FF"/>
+            </svg>
+            Back
+          </span>
+        </div>
+      </div>
+      
+      <div class="quiz-question" data-que-no="6">
+        <div class="quiz-que">
+          <h3>Have your tried compression socks before?</h3>
+        </div>
+        <div class="quiz-ans">
+          <div class="radio-selector">
+              
+                <input id="ans-yes4" name="ans4" value="yes" type="radio">
+                <label for="ans-yes4">Yes</label>
+             
+                <input id="ans-no4" name="ans4" value="no" type="radio">
+                <label for="ans-no4">No</label>
+              
+          </div>
+        </div>
+        <div class="quiz-result">
+          <span class="button">See Result</span>
+        </div>
+        <div class="quiz-back-btn">
+          <span data-que-no="6">
+            <svg width="34" height="16" viewBox="0 0 34 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M0.292893 7.29289C-0.0976311 7.68342 -0.0976311 8.31658 0.292893 8.70711L6.65685 15.0711C7.04738 15.4616 7.68054 15.4616 8.07107 15.0711C8.46159 14.6805 8.46159 14.0474 8.07107 13.6569L2.41421 8L8.07107 2.34315C8.46159 1.95262 8.46159 1.31946 8.07107 0.928932C7.68054 0.538408 7.04738 0.538408 6.65685 0.928932L0.292893 7.29289ZM33 9C33.5523 9 34 8.55228 34 8C34 7.44772 33.5523 7 33 7V9ZM1 9H33V7H1V9Z" fill="#48C2FF"/>
+            </svg>
+            Back
+          </span>
+        </div>
+      </div>                  
+      
+    </div>
+    
+    <div class="quiz-bottom center">
+      <p><small>By telling us more about yourself, we're able to match you with the socks that best meet your needs.</small></p>
+    </div>
+   
+    </div>
+    
+    <div class="quiz__results">
+      
+      <div class="quiz_result non-binding-sock">
+        <div class="quiz_result_content">
+          <div class="quiz_result_head center">
+             <h2 class="title h1">The Results Are In!</h2>
+            <p>Based on the answers you chose, we believe Non-Binding Diabetic Socks are perfect for you!</p>
+          </div>
+          <div class="qu_result_content">
+            <div class="quiz_res_media">
+            <!--  <img src="https://cdn.shopify.com/s/files/1/0253/3641/4261/files/quiz-nonbinding.png?v=1653481449">-->
+              
+                   <video controls="true"  playsinline src="https://cdn.shopify.com/videos/c/o/v/054efc54dee94a1e8c6ab062249c807b.mp4" disablepictureinpicture autoplay muted loop controlslist="nofullscreen nodownload noremoteplayback noplaybackrate foobar">
+            
+              </video>
+            </div>
+            <div class="quiz_res_text">
+              <h3>Non-Binding Diabetic Socks</h3>
+              <p>Extremely stretchy socks specifically designed to combat diabetic neuropathy.</p>
+              <div class="quiz-result_options center">
+                <div class="result_option">
+                  <div>
+                  <img src="https://cdn.shopify.com/s/files/1/0253/3641/4261/files/black-socks.png?v=1653481691">
+                  <p>Black</p>
+                  </div>
+                </div>
+                <div>
+                <div class="result_option">
+                  <div>
+                  <img src="https://cdn.shopify.com/s/files/1/0253/3641/4261/files/white-socks.png?v=1653481691">
+                  <p>White</p>
+                  </div>
+                  </div>
+                </div>
+                <div class="result_option">
+                  <div>
+                  <img src="https://cdn.shopify.com/s/files/1/0253/3641/4261/files/design-socks.png?v=1653481691">
+                  <p>Designs</p>
+                  </div>
+                </div>
+              </div>
+              <div class="result_review">
+                <div class="main-banner-reviews-text">
+               <div class=" yotpo bottomLine"
+    data-appkey="IU654GhrymKotQO3weIEKxubNZIaRR5d7yfbmWaT"
+    data-domain="{{shop.permanent_domain | escape }}"
+    data-product-id="{{ 4996292444213 }}"
+   data-product-models="{{ 4996292444213 }}"
+                    
+    data-name="{{ product.title | escape }}"
+    data-url="{{ shop.url }}{{ product.url }}"
+    data-image-url="{{ product.featured_image | product_img_url: 'large' |replace: '?', '%3F' | replace: '&','%26'}}"
+    data-description="{{ product.description | escape }}"
+    data-bread-crumbs="{% for tag in product.tags %}{{ tag | escape }};{% endfor %}">
+            </div>    </div>
+              </div>
+              <div class="buttonPadding">
+              <a href="/collections/non-binding-diabetic-socks" class="button">Get My Non-Binding Socks</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="quiz_result compression-socks">
+        <div class="quiz_result_content">
+          <div class="quiz_result_head center">
+            <h2 class="title h1">The Results Are In!</h2>
+            <p>Based on the answers you chose, we believe Diabetic Compression socks are perfect for you!</p>
+          </div>
+          <div class="qu_result_content">
+            <div class="quiz_res_media">
+              <!--<img src="https://cdn.shopify.com/s/files/1/0253/3641/4261/files/quiz-nonbinding.png?v=1653481449">-->
+               
+
+               <video controls="true"  playsinline src="https://cdn.shopify.com/videos/c/o/v/0a596d6782094b28aea31baaf2ad61ba.mp4" disablepictureinpicture autoplay muted loop controlslist="nofullscreen nodownload noremoteplayback noplaybackrate foobar">
+            
+              </video>
+
+            </div>
+            <div class="quiz_res_text">
+              <h3>Compression Socks</h3>
+              <p>Tight but gentle-fitting socks designed specifically to combat varicose veins and edema.</p>
+              <div class="quiz-result_options center">
+                <div class="result_option">
+                  <div>
+                    <img src="https://cdn.shopify.com/s/files/1/0253/3641/4261/files/black-socks.png?v=1653481691">
+                    <p>Black</p>
+                  </div>
+                </div>
+                <div>
+                  <div class="result_option">
+                    <div>
+                      <img src="https://cdn.shopify.com/s/files/1/0253/3641/4261/files/white-socks.png?v=1653481691">
+                      <p>White</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="result_option">
+                  <div>
+                    <img src="https://cdn.shopify.com/s/files/1/0253/3641/4261/files/Imagesocks-5.png?v=1655409573">
+                    <p>Designs</p>
+                  </div>
+                </div>
+              </div>
+              <div class="result_review">
+                <div class="main-banner-reviews-text">
+               <div class=" yotpo bottomLine"
+    data-appkey="IU654GhrymKotQO3weIEKxubNZIaRR5d7yfbmWaT"
+    data-domain="{{shop.permanent_domain | escape }}"
+    data-product-id="{{ 6731626020917 }}"
+    data-product-models="{{ 6731626020917 }}"
+    data-name="{{ product.title | escape }}"
+    data-url="{{ shop.url }}{{ product.url }}"
+    data-image-url="{{ product.featured_image | product_img_url: 'large' |replace: '?', '%3F' | replace: '&','%26'}}"
+    data-description="{{ product.description | escape }}"
+    data-bread-crumbs="{% for tag in product.tags %}{{ tag | escape }};{% endfor %}">
+            </div>    </div>
+              </div>
+              <div class="buttonPadding">
+              <a href="/collections/diabetic-compression-socks" class="button">Get My Compression Socks</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    
+  </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+  $(document).ready(function(){
+    $('.quiz-result').click(function(){
+      $('.quiz_wrap').hide();
+      var comp_socks = false;
+      
+      if($('#option-a').is(":checked") || $('#option-b').is(":checked") || $('#option-e').is(":checked")){
+        var comp_socks = true;
+      }
+      
+      if($('input[name="ans2"]:checked').val() == 'yes'){
+        var comp_socks = true;
+      }
+      
+      if(comp_socks){
+        $('.quiz_result.compression-socks').show();
+      }else{
+        $('.quiz_result.non-binding-sock').show();
+      }
+
+      $('html, body').animate({
+        scrollTop: $("#MainContent").offset().top-100
+      });
+    });
+  });
+</script>
+
+

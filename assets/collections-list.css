@@ -1,0 +1,346 @@
+.collection-list_section .coll-list_sec .coll-list_content h3{
+  font-family: 'Montserrat';
+font-style: normal;
+font-weight: 700;
+font-size: 30px;
+line-height: 40px;
+/* identical to box height, or 147% */
+
+text-align: center;
+letter-spacing: 0.025em;
+padding-top:1rem;
+/* dark1 */
+
+color: #0E2733;
+
+  
+}
+
+
+.collection-list_section .coll-list_sec .coll-list_content p{
+font-family: 'Montserrat';
+font-style: normal;
+font-weight: 500;
+font-size: 20px;
+line-height: 150%;
+/* or 36px */
+padding-left:1rem;
+  padding-right:1rem;
+  padding-bottom:1rem;
+text-align: center;
+letter-spacing: 0.01em;
+
+/* dark1 */
+
+color: #0E2733;
+  
+}
+
+
+#shopify-section-template--14868077707317__coll-list .coll-list_collection{
+  
+flex-direction: column;
+    display: flex;
+}
+ /* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+ .Desktop{
+   display:none !important;
+ }
+  .Mobile{
+    display:block !important;
+  }
+.collection-list_section .coll-list_sec .coll-list_content h3{  
+  font-family: 'Montserrat';
+font-style: normal;
+font-weight: 700;
+font-size: 20px;
+line-height: 120%;
+/* identical to box height, or 24px */
+
+text-align: center;
+letter-spacing: 0.01em;
+
+/* dark1 */
+
+color: #0E2733;
+
+}
+  .collection-list_section .coll-list_sec .coll-list_content p{
+font-family: 'Montserrat';
+font-style: normal;
+font-weight: 500;
+font-size: 18px;
+line-height: 150%;
+/* or 36px */
+padding-left:1rem;
+  padding-right:1rem;
+  padding-bottom:1rem;
+text-align: center;
+letter-spacing: 0.01em;
+
+/* dark1 */
+
+color: #0E2733;
+  
+}
+  
+.video-section .title{
+    font-family: 'MADE TOMMY';
+font-style: normal;
+font-weight: 700;
+font-size: 28px !Important;
+line-height: 120%;
+/* or 34px */
+
+text-align: center;
+letter-spacing: 0.01em;
+
+/* dark1 */
+
+color: #0E2733;
+  }
+  #shopify-section-template--14868077707317__1652537463b87542aa h2{
+    font-family: 'Spartan';
+font-style: normal;
+font-weight: 700;
+font-size: 16px;
+line-height: 150%;
+/* identical to box height, or 24px */
+
+text-align: center;
+letter-spacing: 0.01em;
+
+/* dark1 */
+
+color: #0E2733;
+
+  }
+  
+    #shopify-section-template--14868077707317__1652537463b87542aa p{
+  font-family: 'Montserrat';
+font-style: normal;
+font-weight: 500;
+font-size: 16px;
+line-height: 150%;
+/* or 24px */
+
+text-align: center;
+letter-spacing: 0.01em;
+
+/* dark1 */
+
+color: #0E2733;
+}
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+ .Desktop{
+   display:none !important;
+ }
+  .Mobile{
+    display:block !important;
+  }
+  .collection-list_section .coll-list_sec .coll-list_content h3{  
+  font-family: 'Montserrat';
+font-style: normal;
+font-weight: 700;
+font-size: 28px;
+line-height: 120%;
+/* identical to box height, or 24px */
+
+text-align: center;
+letter-spacing: 0.01em;
+
+/* dark1 */
+
+color: #0E2733;
+
+}
+  .collection-list_section .coll-list_sec .coll-list_content p{
+font-family: 'Montserrat';
+font-style: normal;
+font-weight: 500;
+font-size: 18px;
+line-height: 150%;
+/* or 36px */
+padding-left:1rem;
+  padding-right:1rem;
+  padding-bottom:1rem;
+text-align: center;
+letter-spacing: 0.01em;
+
+/* dark1 */
+
+color: #0E2733;
+  
+}
+  
+.video-section .title{
+    font-family: 'MADE TOMMY';
+font-style: normal;
+font-weight: 700;
+font-size: 28px !Important;
+line-height: 120%;
+/* or 34px */
+
+text-align: center;
+letter-spacing: 0.01em;
+
+/* dark1 */
+
+color: #0E2733;
+  }
+  #shopify-section-template--14868077707317__1652537463b87542aa h2{
+    font-family: 'Spartan';
+font-style: normal;
+font-weight: 700;
+font-size: 16px;
+line-height: 150%;
+/* identical to box height, or 24px */
+
+text-align: center;
+letter-spacing: 0.01em;
+
+/* dark1 */
+
+color: #0E2733;
+
+  }
+  
+    #shopify-section-template--14868077707317__1652537463b87542aa p{
+  font-family: 'Montserrat';
+font-style: normal;
+font-weight: 500;
+font-size: 16px;
+line-height: 150%;
+/* or 24px */
+
+text-align: center;
+letter-spacing: 0.01em;
+
+/* dark1 */
+
+color: #0E2733;
+}
+
+ 
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+ .Desktop{
+   display:none !important;
+ }
+  .Mobile{
+    display:block !important;
+  }
+.collection-list_section .coll-list_sec .coll-list_content h3{  
+  font-family: 'Montserrat';
+font-style: normal;
+font-weight: 700;
+font-size: 20px;
+line-height: 120%;
+/* identical to box height, or 24px */
+
+text-align: center;
+letter-spacing: 0.01em;
+
+/* dark1 */
+
+color: #0E2733;
+
+}
+  .collection-list_section .coll-list_sec .coll-list_content p{
+font-family: 'Montserrat';
+font-style: normal;
+font-weight: 500;
+font-size: 14px;
+line-height: 150%;
+/* or 36px */
+padding-left:1rem;
+  padding-right:1rem;
+  padding-bottom:1rem;
+text-align: center;
+letter-spacing: 0.01em;
+
+/* dark1 */
+
+color: #0E2733;
+  
+}
+  
+.video-section .title{
+    font-family: 'MADE TOMMY';
+font-style: normal;
+font-weight: 700;
+font-size: 28px !Important;
+line-height: 120%;
+/* or 34px */
+
+text-align: center;
+letter-spacing: 0.01em;
+
+/* dark1 */
+
+color: #0E2733;
+  }
+  #shopify-section-template--14868077707317__1652537463b87542aa h2{
+    font-family: 'Spartan';
+font-style: normal;
+font-weight: 700;
+font-size: 22px;
+line-height: 150%;
+/* identical to box height, or 24px */
+
+text-align: center;
+letter-spacing: 0.01em;
+
+/* dark1 */
+
+color: #0E2733;
+
+  }
+  
+    #shopify-section-template--14868077707317__1652537463b87542aa p{
+  font-family: 'Montserrat';
+font-style: normal;
+font-weight: 500;
+font-size: 22px;
+line-height: 150%;
+/* or 24px */
+
+text-align: center;
+letter-spacing: 0.01em;
+
+/* dark1 */
+
+color: #0E2733;
+}
+ 
+
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+ .Desktop{
+   display:block !important;
+ }
+  .Mobile{
+    display:none !important;
+  }
+
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+ .Desktop{
+   display:block !important;
+ }
+  .Mobile{
+    display:none !important;
+  }
+ 
+  
+}  

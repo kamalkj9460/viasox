@@ -1,0 +1,92 @@
+{{ 'collections-list.css' | asset_url | stylesheet_tag }}
+
+<div class="collection-list_section">
+  <div class="page-width">
+    <h2 class="title h1 center">{{ section.settings.title }}</h2>
+    <div class="coll-list_sec">
+      {% for block in section.blocks %}
+      <div class="coll-list_collection"><a href="{{ block.settings.btnlink }}">
+        {% if block.settings.img != blank %}<img src="{{ block.settings.img | img_url : 'master' }}">{% endif %}
+        <div class="coll-list_content">
+          <h3>{{ block.settings.title }}</h3>
+          <p>{{ block.settings.text }}</p>
+          
+              <div class="main-banner-reviews-text">
+               <div class=" yotpo bottomLine"
+    data-appkey="IU654GhrymKotQO3weIEKxubNZIaRR5d7yfbmWaT"
+    data-domain="{{shop.permanent_domain | escape }}"
+    {% if block.settings.title contains "Non-Binding" %}data-product-id="{{ 4996292444213 }}"{% endif %}
+    {% if block.settings.title contains "Ankle" %}data-product-id="{{ 6715023130677 }}"{% endif %}
+    {% if block.settings.title contains "Pain" %}data-product-id="{{ 6795760042037 }}"{% endif %}
+    {% if block.settings.title contains "Compression" %}data-product-id="{{ 6731626020917 }}"{% endif %}
+    data-product-models="{{ product.id }}"
+    data-name="{{ block.setting.title | escape }}"
+    data-url="{{ shop.url }}{{ product.url }}"
+    data-image-url="{{ product.featured_image | product_img_url: 'large' |replace: '?', '%3F' | replace: '&','%26'}}"
+    data-description="{{ product.description | escape }}"
+    data-bread-crumbs="{% for tag in product.tags %}{{ tag | escape }};{% endfor %}">
+            </div>    </div>
+          
+          <a href="{{ block.settings.btnlink }}" class="button">{{ block.settings.btn }}</a>
+        </div></a>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Collection list section",
+    "settings": [
+	  {
+		"type" : "text",
+		"id" : "title",
+		"label" : "Title"
+	  }
+	],
+	"blocks" : [
+	  {
+		"type" : "collection",
+		"name" : "collection",
+		"settings" : [
+		  {
+			"type" : "image_picker",
+			"id" : "img",
+			"label" : "Image"
+		  },
+		  {
+			"type" : "text",
+			"id" : "title",
+			"label" : "Title"
+		  },
+		  {
+			"type" : "textarea",
+			"id" : "text",
+			"label" : "Text"
+		  },
+		  {
+			"type" : "text",
+			"id" : "btn",
+			"label" : "Button"
+		  },
+		  {
+			"type" : "url",
+			"id" : "btnlink",
+			"label" : "Button link"
+		  }
+		]
+	  }
+	]
+  }
+{% endschema %}
+
+{% comment %}Speed optimization code start{% endcomment %}
+
+
+
+
+
+
+
+{% comment %}Speed optimization code end{% endcomment %}

@@ -1,0 +1,133 @@
+<div class="compare-products">
+  <div class="page-width">
+    <div class="compare-products-wrap">      
+      <div class="compare-products-left">            
+        <div class="compare-products-left-img">
+          {%- if section.settings.regular-image != blank -%}
+          <img
+               srcset="{%- if section.settings.regular-image.width >= 165 -%}{{ section.settings.regular-image | image_url: width: 165 }} 165w,{%- endif -%}
+                       {%- if section.settings.regular-image.width >= 360 -%}{{ section.settings.regular-image | image_url: width: 360 }} 360w,{%- endif -%}
+                       {%- if section.settings.regular-image.width >= 535 -%}{{ section.settings.regular-image | image_url: width: 535 }} 535w,{%- endif -%}
+                       {%- if section.settings.regular-image.width >= 750 -%}{{ section.settings.regular-image | image_url: width: 750 }} 750w,{%- endif -%}
+                       {%- if section.settings.regular-image.width >= 1070 -%}{{ section.settings.regular-image | image_url: width: 1070 }} 1070w,{%- endif -%}
+                       {%- if section.settings.regular-image.width >= 1500 -%}{{ section.settings.regular-image | image_url: width: 1500 }} 1500w,{%- endif -%}
+                       {{ section.settings.regular-image | image_url }} {{ section.settings.regular-image.width }}w"
+               src="{{ section.settings.regular-image | image_url: width: 1500 }}"
+               sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 2 }}px, (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)"
+               alt="{{ section.settings.regular-image.alt | escape }}"
+               loading="lazy"
+               width="{{ section.settings.regular-image.width }}"
+               height="{{ section.settings.regular-image.height }}"
+               >
+          {% endif %}
+        </div>            
+        <div class="compare-products-left-content">
+          <div class="comp-prod-title">{{ section.settings.regular-title }}</div>
+          <ul>
+            {% for block in section.blocks %}
+            <li>{{ block.settings.regular-socks-feat }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>      
+      <div class="compare-products-right">            
+        <div class="compare-products-right-img">
+          {%- if section.settings.viasox-image != blank -%}
+          <img
+               srcset="{%- if section.settings.viasox-image.width >= 165 -%}{{ section.settings.viasox-image | image_url: width: 165 }} 165w,{%- endif -%}
+                       {%- if section.settings.viasox-image.width >= 360 -%}{{ section.settings.viasox-image | image_url: width: 360 }} 360w,{%- endif -%}
+                       {%- if section.settings.viasox-image.width >= 535 -%}{{ section.settings.viasox-image | image_url: width: 535 }} 535w,{%- endif -%}
+                       {%- if section.settings.viasox-image.width >= 750 -%}{{ section.settings.viasox-image | image_url: width: 750 }} 750w,{%- endif -%}
+                       {%- if section.settings.viasox-image.width >= 1070 -%}{{ section.settings.viasox-image | image_url: width: 1070 }} 1070w,{%- endif -%}
+                       {%- if section.settings.viasox-image.width >= 1500 -%}{{ section.settings.viasox-image | image_url: width: 1500 }} 1500w,{%- endif -%}
+                       {{ section.settings.viasox-image | image_url }} {{ section.settings.viasox-image.width }}w"
+               src="{{ section.settings.viasox-image | image_url: width: 1500 }}"
+               sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 2 }}px, (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)"
+               alt="{{ section.settings.viasox-image.alt | escape }}"
+               loading="lazy"
+               width="{{ section.settings.viasox-image.width }}"
+               height="{{ section.settings.viasox-image.height }}"
+               >
+          {% endif %}
+        </div>            
+        <div class="compare-products-right-content">
+          <div class="comp-prod-title">{{ section.settings.viasox-title }}</div>
+          <ul>
+            {% for block in section.blocks %}
+            <li>{{ block.settings.viasox-feat }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+    </div>
+    {%- if section.settings.btn-link != blank -%}
+    <div class="compare-products-btn">
+      <a class="button" href="{{ section.settings.btn-link }}">{{ section.settings.btn-text }}</a>
+    </div>
+    {%- endif -%}
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Compare Products",
+    "class": "section",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "regular-image",
+        "label": "Regular socks Image"
+      },
+      {
+        "type": "text",
+        "id": "regular-title",
+        "default": "Regular Socks",
+        "label": "Heading"
+      },
+      {
+        "type": "image_picker",
+        "id": "viasox-image",
+        "label": "Viasox Image"
+      },
+      {
+        "type": "text",
+        "id": "viasox-title",
+        "default": "Viasox",
+        "label": "Heading"
+      },
+      {
+        "type": "text",
+        "id": "btn-text",
+        "label": "Button Text"
+      },
+      {
+        "type": "url",
+        "id": "btn-link",
+        "label": "Button Link"
+      }
+	],
+    "blocks": [
+      {
+        "type": "text",
+        "name": "feature",
+        "settings": [
+          {
+            "type": "text",
+            "id": "regular-socks-feat",
+            "label": "Regular socks Feature"
+          },
+          {
+            "type": "text",
+            "id": "viasox-feat",
+            "label": "Viasox Feature"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Compare Products"
+      }
+    ]
+  }
+{% endschema %}

@@ -1,0 +1,60 @@
+<div class="logo-slider">
+  <div class="page-width">
+    <div class="logo_with_text-slider" style="background-color: {{ section.settings.user_color }};">
+      {% for block in section.blocks %}
+      <div class="logo_with_text-slide">
+        {% if block.settings.image != blank %}<img src="{{ block.settings.image | img_url : 'master' }}">{% endif %}
+        <p>{{ block.settings.text }}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "logo slider",
+    "settings": [
+ 		{
+        "type": "color",
+        "id": "user_color",
+        "label": "background-color",
+        "default": "#FFFFFF"
+      }
+
+	],
+	"blocks" : [
+	  {
+		"type" : "slider",
+		"name" : "logo",
+		"settings" : [
+		  {
+			"type" : "image_picker",
+			"id" : "image",
+			"label" : "Logo image"
+		  },
+		  {
+			"type" : "textarea",
+			"id" : "text",
+			"label" : "Text"
+		  }
+		]
+	  }
+	],
+	"presets" : [
+	  {
+		"name": "logo slider"
+	  }
+	]
+  }
+{% endschema %}
+
+{% comment %}Speed optimization code start{% endcomment %}
+
+
+
+
+
+
+
+{% comment %}Speed optimization code end{% endcomment %}

@@ -1,0 +1,57 @@
+<div class="moblieno-subscription">
+  <div class="page-width">
+    <div class="moblieno-subscri">
+      <div class="moblieno-subscri_text">
+        <h3>{{ section.settings.title }}</h3>
+        <p>{{ section.settings.text }}</p>
+      </div>
+      <div class="moblieno-subscri_script">
+        <div class="newsletter-mobilenocollect">
+          
+          {% comment %}Speed optimization code start{% endcomment %}
+          <div><script type="text/javascript" id="moblie_subscription_script" mydata-src="https://dhv2ziothpgrr.cloudfront.net/189994/form_36409.js?ver=1615578524"></script></div>
+          <script type="text/javascript">
+          document.addEventListener('StartAsyncLoading',function(event){var moblie_subscription_script = document.getElementById("moblie_subscription_script");
+          moblie_subscription_script.setAttribute("src",moblie_subscription_script.getAttribute("mydata-src"));});
+          </script>
+          {% comment %}Speed optimization code end{% endcomment %}
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "moblie subscription",
+    "settings": [
+	  {
+		"type" : "text",
+		"id" : "title",
+		"label" : "Title"
+	  },
+	  {
+		"type" : "text",
+		"id" : "text",
+		"label" : "Text"
+	  }
+	],
+	"presets" : [
+	  {
+		"name": "moblie subscription"
+	  }
+	]
+  }
+{% endschema %}
+
+
+{% comment %}Speed optimization code start{% endcomment %}
+
+
+
+
+
+
+
+{% comment %}Speed optimization code end{% endcomment %}

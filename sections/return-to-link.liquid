@@ -1,0 +1,82 @@
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+{% comment %}Speed optimization code start{% endcomment %}
+<script type="text/javascript">document.addEventListener('StartAsyncLoading',function(event){(function e(){var e=document.createElement("script");e.type="text/javascript",e.async=true,e.src="//staticw2.yotpo.com/IU654GhrymKotQO3weIEKxubNZIaRR5d7yfbmWaT/widget.js";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)})();});</script>
+<script data-src="https://cdn-widgetsrepository.yotpo.com/v1/loader/uwhj1XZjxWn8Es0ol7A1dw" async></script>
+{% comment %}Speed optimization code end{% endcomment %}
+
+<div class="section-{{ section.id }}-padding" style="background-color: {{ section.settings.user_color }};">
+
+  {% if section.settings.btn != blank %}
+<div class="return-to-link">
+  <a href={{section.settings.btnlink}}>{{ section.settings.btn}}</a>
+</div>
+{% endif %}
+  
+  
+</div>
+
+
+
+{% schema %}
+  {
+    "name": "Return To Link",
+    "settings": [
+		 {
+		"type" : "text",
+		"id" : "btn",
+		"label" : "Button"
+	  },
+	  {
+		"type" : "url",
+		"id" : "btnlink",
+		"label" : "Button Link"
+	  },
+  		{
+        "type": "color",
+        "id": "user_color",
+        "label": "background-color",
+        "default": "#FFFFFF"
+      },
+	{
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 36
+    }
+	
+	],
+	"presets" : [
+	  {
+		"name" : "Return"
+	  }
+	]
+  }
+{% endschema %}

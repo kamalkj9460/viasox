@@ -1,0 +1,162 @@
+ 
+{%- style -%}
+.section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: 40px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+
+<div class="feature-collection-list section-{{ section.id }}-padding ">
+  <div class="page-width">
+    <h2 class="title h1 center">{{ section.settings.title }}</h2>
+    <div class="fea-colla-slider">    
+      {% for block in section.blocks %}
+      <div class="fea-colla-slide"><a href="{{ block.settings.btnlink1 }}">
+        
+        {% comment %}Speed optimization code start{% endcomment %}
+        {% if block.settings.img != blank %}<img loading="lazy"  src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" class="lazyload" data-src="{{ block.settings.img | img_url : 'master' }}">{% endif %}
+        {% comment %}Speed optimization code end{% endcomment %}
+        
+        <div class="fea-colla-slide-content">
+          <h3>{{ block.settings.title }}</h3>
+          <p>{{ block.settings.text }}</p>
+          
+          
+            <div class="main-banner-reviews-text">
+               <div class=" yotpo bottomLine"
+    data-appkey="IU654GhrymKotQO3weIEKxubNZIaRR5d7yfbmWaT"
+    data-domain="{{shop.permanent_domain | escape }}"
+    {% if block.settings.title contains "Non-Binding" %}data-product-id="{{ 4996292444213 }}"{% endif %}
+    {% if block.settings.title contains "Ankle" %}data-product-id="{{ 6715023130677 }}"{% endif %}
+    {% if block.settings.title contains "Pain" %}data-product-id="{{ 6795760042037 }}"{% endif %}
+    {% if block.settings.title contains "Compression" %}data-product-id="{{ 6731626020917 }}"{% endif %}
+    data-product-models="{{ product.id }}"
+    data-name="{{ block.setting.title | escape }}"
+    data-url="{{ shop.url }}{{ product.url }}"
+    data-image-url="{{ product.featured_image | product_img_url: 'large' |replace: '?', '%3F' | replace: '&','%26'}}"
+    data-description="{{ product.description | escape }}"
+    data-bread-crumbs="{% for tag in product.tags %}{{ tag | escape }};{% endfor %}">
+            </div>    </div>
+          
+          
+          
+          <div class="coll-slide_btn">
+            <a href="{{ block.settings.btnlink1 }}" class="button">{{ block.settings.btn1 }}</a>
+            <a href="{{ block.settings.btnlink2 }}" class="coll-sec-btn">{{ block.settings.btn2 }}</a>
+          </div>
+         </div></a>
+      </div>
+      {% endfor %}      
+    </div>
+<div class="fea-colla-slide-dots">
+  {% for block in section.blocks %}
+  <div class="fea-colla-slide-dot"><span></span></div>
+  {% endfor %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "featured collection list",
+    "settings": [
+	  {
+	 	"type" : "text",
+		"id" : "title",
+		"label" : "Title"
+	  },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 36
+    }
+	],
+	"blocks" : [
+	  {
+		"type" : "slider",
+		"name" : "collection",
+		"settings" : [
+		  {
+			"type" : "image_picker",
+			"id" : "img",
+			"label" : "Image"
+		  },
+		  {
+			"type" : "text",
+			"id" : "title",
+			"label" : "Title"
+		  },
+ 			{
+			"type" : "text",
+			"id" : "reviews-text",
+			"label" : "Reviews Text"
+		  },
+
+		  {
+			"type" :"textarea",
+			"id" : "text",
+			"label" : "Text"
+		  },
+		  {
+			"type" :"text",
+			"id" : "btn1",
+			"label" : "Button 1"
+		  },
+		  {
+			"type" :"url",
+			"id" : "btnlink1",
+			"label" : "Text"
+		  },
+		  {
+			"type" :"text",
+			"id" : "btn2",
+			"label" : "Button 2"
+		  },
+		  {
+			"type" :"url",
+			"id" : "btnlink2",
+			"label" : "Text"
+		  }	
+		]
+	  }
+	],
+	"presets" : [
+	  {
+		"name" : "featured collection list"
+	  }
+	]
+   }
+{% endschema %}
+
+{% comment %}Speed optimization code start{% endcomment %}
+
+
+
+
+
+
+
+{% comment %}Speed optimization code end{% endcomment %}

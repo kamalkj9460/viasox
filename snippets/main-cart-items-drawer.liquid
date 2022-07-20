@@ -1,0 +1,186 @@
+{{ 'component-cart.css' | asset_url | stylesheet_tag }}
+{{ 'component-cart-items.css' | asset_url | stylesheet_tag }}
+{{ 'component-totals.css' | asset_url | stylesheet_tag }}
+{{ 'component-price.css' | asset_url | stylesheet_tag }}
+{{ 'component-discounts.css' | asset_url | stylesheet_tag }}
+{{ 'component-loading-overlay.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<script src="{{ 'cart.js' | asset_url }}" defer="defer"></script>
+
+<cart-items class="cart-drawer container-fluid  section-{{ section.id }}-padding">
+
+  <form action="{{ routes.cart_url }}" class="cart__contents critical-hidden" method="post" id="cart">
+    <div class="cart__items" id="main-cart-items" data-id="{{ section.id }}">
+
+      
+         <!-- TESTTTTTTTTTTTTTTTTTTT -->
+      
+      
+      <div data-ajax-cart-section>
+    <div class="center cart-main-title">Review Your Cart</div>
+    
+    <!-- data-ajax-cart-section-scroll keeps the scroll position unchanged
+    when the element's HTML is changed -->
+    <div class="my-cart__items" data-ajax-cart-section-scroll>
+      {% for item in cart.items %}
+        {% assign item_index = forloop.index %}
+         
+      	<div class="row">
+         <div class="col-xs-3 cart-img">
+          
+      	<div class="cart-item__image-container gradient global-media-settings">
+                          <img src="{{ item.image | image_url: width: 300 }}"
+                            class="cart-item__image"
+                            alt="{{ item.image.alt | escape }}"
+                            loading="lazy"
+                            width="150"
+                            height="{{ 150 | divided_by: item.image.aspect_ratio | ceil }}"
+                          >
+                        </div>
+          </div>
+      <div class="col-xs-6 cart-title">
+        <div><a href="{{ item.url }}">{{ item.product.title | escape }}</a></div>
+        
+        
+          <!-- data-ajax-cart-property-input ajaxifies the line item property input -->
+        <!--{% for property in item.properties %}
+          <div>
+            {{ property.first }}:
+            {% if property.first == 'Engraving' %}
+             
+              <input type="text"
+                value="{{ property.last }}" 
+                data-ajax-cart-property-input="{{ item_index }}[{{ property.first }}]"/>
+              {% else %}
+                {{ property.last }}
+              {% endif %}
+          </div>
+        {% endfor %}-->
+        
+        {%- if item.product.has_only_default_variant == false -%}
+                          {%- for option in item.options_with_values -%}
+                            <div class="product-option">
+                              
+                              
+                               {%- if item.options_with_values != null and option.name == "Compression Rating" -%}
+                              /
+                              {%- endif -%}
+                               {%- if item.options_with_values != null and option.name == "Length" -%}
+                              /
+                              {%- endif -%}
+                              <dd> {{ option.value }} </dd> 
+                            
+                                {%- if item.options_with_values != null and option.name == "Length" -%}
+                              /
+                              {%- endif -%}
+                              
+                          
+                            </div>
+                          {%- endfor -%}
+                        {%- endif -%}
+        
+      
+
+        <div class="cart-price">{{ item.final_price | money }}</div>
+		 </div>
+          <div class="col-xs-3 cart-quantity">
+        <quantity-input class="quantity">
+         
+          <!-- data-ajax-cart-request-button ajaxifies the "Minus one" button -->
+          <a class="quantity__button no-js-hidden" data-ajax-cart-request-button
+            href="{{ routes.cart_change_url }}?line={{ item_index }}&quantity={{ item.quantity | minus: 1 }}" > 
+            {% render 'icon-minus' %}
+          </a>
+
+          <!-- data-ajax-cart-quantity-input ajaxifies the line item quantity input -->
+          <a class="quantity__input" data-ajax-cart-quantity-input="{{ item_index }}"
+            name="updates[]" 
+            
+             type="number" >{{ item.quantity }}</a>
+		
+          <!-- data-ajax-cart-request-button ajaxifies the "Plus one" button -->
+          <a  class="quantity__button no-js-hidden" data-ajax-cart-request-button 
+            href="{{ routes.cart_change_url }}?line={{ item_index }}&quantity={{ item.quantity | plus: 1 }}"> 
+            {% render 'icon-plus' %}
+          </a>
+      </quantity-input>
+
+        <!-- Container for errors -->
+        <div data-ajax-cart-messages="{{ item.key }}"></div>
+
+        <!--<div>Total: <strong>{{ item.final_line_price | money }}</strong></div>-->
+            <div >
+            <a class="cart-delete quantity__button no-js-hidden" data-ajax-cart-request-button
+            href="{{ routes.cart_change_url }}?line={{ item_index }}&quantity={{ 0 }}" >
+                          Delete
+                        </a>
+            </div>
+             </div>
+      </div>
+        
+      {% endfor %}
+        </div>
+   
+
+    <!-- data-ajax-cart-property-input ajaxifies the cart note textarea 
+    <textarea data-ajax-cart-property-input
+      name="note" 
+      placeholder="Cart note">
+      {{ cart.note }}
+    </textarea>
+    -->
+    <!-- data-ajax-cart-static-element keeps the container unchanged
+    when the cart and the surrounding HTML get updated -->
+    <div  class="my-cart__app-container">
+
+    <div class="cart-checkout"  name="checkout">
+      
+      <div class="cart-subtotal_header">
+           Total</div>
+      <div class="cart-subtotal">
+      {{ cart.total_price | money_with_currency }}
+    </div> 
+        
+     
+        
+          
+  </div>
+      <div class="cart-checkout-buttons">
+       <button type="submit" id="checkout" class="cart__checkout-button button" name="checkout"{% if cart == empty %} disabled{% endif %} form="cart">
+                  {{ 'sections.cart.checkout' | t }}
+                </button>
+        </div>
+       <!-- TESTTTTTTTTTTTTTTTTTTT -->
+      </div>
+      
+      
+      </div>
+      
+    </div>
+
+  </form>
+</cart-items>
+
+
+<script type="module">
+  import { subscribeToCartSectionsUpdate } from '{{ "liquid-ajax-cart-v1.10.2.js" | asset_url }}'
+
+  subscribeToCartSectionsUpdate( sections => {
+    console.log('Sections are updated: ', sections);
+    // Place your code here
+  });
+</script>

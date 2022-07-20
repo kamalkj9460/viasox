@@ -1,0 +1,198 @@
+.testimonial{
+ padding-top:0rem; 
+  padding-bottom: 32px;
+}
+.carousel2{
+ text-align:center;
+  margin:0px auto;
+}
+.template--14868077674549__custom-slider-loop .slick-slider{
+  padding:0px;
+  font-family: 'Montserrat';
+font-style: normal;
+font-weight: 500;
+font-size: 24px;
+line-height: 150%;
+/* or 36px */
+
+text-align: center;
+letter-spacing: 0.01em;
+
+/* dark1 */
+
+color: #0E2733;
+}
+
+#bg-image{
+  background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  border-radius: 50px;
+}
+.carousel2 .items{
+  width:100%;
+}
+.carousel2 .testimonial-detail{
+  width:calc(99%/3);
+  margin:auto;
+  
+}
+
+.carousel2 .test-img img{
+ margin-left: auto;
+    margin-right: auto; 
+  
+  
+}
+.carousel2 .test-img {
+  padding-bottom:1rem;
+}
+
+.carousel2 .slick-prev:before {
+   content: "";
+}
+
+.carousel2 .slick-next:before{
+   content: "";
+}
+
+.testimonial-content .small-title{
+  font-weight: 700;
+font-size: 46px;
+line-height: 120%;
+/* or 55px */
+padding-top:1rem;
+  padding-bottom:1rem;
+text-align: center;
+letter-spacing: 0.01em;
+
+/* white */
+
+color: #FFFFFF;
+
+text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+}
+
+.carousel2 .testimonial-detail{
+  padding:1rem;
+  margin-left:1vw;
+  margin-right:1vw;
+  margin-top:1vw;
+  margin-bottom:1vw;
+      display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.carousel2 .rating{
+  font-weight: 600;
+font-size: 12px;
+line-height: 24px;
+/* identical to box height, or 200% */
+
+
+align-items: center;
+text-align: center;
+letter-spacing: 0.025em;
+
+/* grey */
+
+color: #6E7D85;
+}
+
+.carousel2 .author{
+font-style: normal;
+font-weight: 700;
+font-size: 18px;
+line-height: 24px;
+/* identical to box height, or 133% */
+
+align-items: center;
+text-align: center;
+letter-spacing: 0.025em;
+
+/* dark1 */
+
+color: #0E2733;
+
+}
+
+
+.carousel2 .quote{
+  font-weight: 500;
+font-size: 16px;
+line-height: 150%;
+/* or 24px */
+padding: 0vw 3vw;
+letter-spacing: 0.025em;
+
+/* dark1 */
+
+color: #0E2733;
+}
+.carousel2 .quoteImage{
+  margin-top:auto;
+  margin-left:auto;
+  padding-top:4rem;
+  
+}
+.testimonial-content .slick-prev:before {
+  
+   background-image: none;
+   
+}
+
+.testimonial-content .slick-next:before{
+   
+  background-image: none;
+   
+}
+
+.carousel2 .slick-prev:before, .carousel2 .slick-prev:after,.carousel2 .slick-next:hover:before, .carousel2 .slick-next:hover:after, .carousel2 .slick-next.slick-arrow, .carousel2 .slick-prev.slick-arrow{
+display:none !Important;
+}
+
+ /* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+
+.testimonial-content .small-title{
+
+font-size: 28px;
+
+}
+  .carousel2 .quoteImage{
+  
+  padding-top:1rem;
+  
+}
+  .carousel2 .quote{
+
+font-size: 12px;
+
+}
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+
+	 .carousel2 .quote{
+
+font-size: 14px;
+
+}
+ 
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+ 
+	 .carousel2 .quote{
+
+font-size: 16px;
+
+}
+ 
+
+}
+

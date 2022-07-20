@@ -1,0 +1,292 @@
+.drawer {
+  display: none;
+}
+
+.drawer__header {
+  padding: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  
+}
+
+.drawer__close {
+  margin: 0;
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%0A%3Csvg width='15px' height='16px' viewBox='0 0 15 16' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cg id='Page-1' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3E%3Cg id='2.-Menu' transform='translate(-15.000000, -13.000000)' stroke='%23000000'%3E%3Cg id='Group' transform='translate(15.000000, 13.521000)'%3E%3Cpath d='M0,0.479000129 L15,14.2971819' id='Path-3'%3E%3C/path%3E%3Cpath d='M0,14.7761821 L15,-1.24344979e-14' id='Path-3'%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  width: 15px;
+  height: 15px;
+}
+
+.drawer__wrapper {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  height: 100%;
+  width: 100%;
+  max-width: 500px;
+  z-index: 9999;
+  overflow: auto;
+  transition: transform 0.3s;
+  will-change: transform;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  -webkit-transform: translateX(103%);
+  transform: translateX(103%);
+  -webkit-overflow-scrolling: touch;
+  box-shadow: 0 2px 6px #777;
+}
+
+.drawer__content {
+  position: relative;
+  overflow-x: hidden;
+  overflow-y: auto;
+  height: 100%;
+  flex-grow: 1;
+  padding: 1.5rem;
+  padding-top:0px;
+}
+
+.drawer.is-active{
+  display: block;
+}
+.js-my-cart-open .drawer{ 
+  display: block; 
+}
+.js-my-cart-open .drawer__wrapper{ 
+  -webkit-transform: translateX(0);
+  transform: translateX(0);
+}
+
+
+
+.drawer.is-visible .drawer__wrapper {
+  -webkit-transform: translateX(0);
+  transform: translateX(0);
+}
+
+.drawer.is-visible .drawer__overlay {
+  opacity: 0.5;
+  display:block;
+}
+
+.js-my-cart-open .drawer .drawer__overlay{
+    opacity: 0.5;
+  display:block;
+}
+
+.drawer__overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 200;
+  opacity: 0;
+  transition: opacity 0.3s;
+  will-change: opacity;
+  background-color: #000;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+#shopify-section-drawer .cart-item__quantity-wrapper{
+ display:block; 
+}
+
+.drawer__wrapper .col-xs-3,.drawer__wrapper .col-xs-6{
+ padding-left:5px;
+  padding-right:5px;
+  
+}
+
+#shopify-section-drawer .product-option {
+      display: inline;
+}
+
+.cart-img img{
+  margin-bottom:1rem;
+  top:-1rem;
+  position:relative;
+  margin-left:auto;
+  margin-right:auto;
+  max-width: 70px;
+}
+.cart-img {
+
+  position:relative;
+  margin-left:auto;
+  margin-right:auto;
+  text-align:center
+}
+.cart-img .cart-item__image-container{
+    position:relative;
+  margin-left:auto;
+  margin-right:auto;
+      display: inline;
+}
+
+.cart-main-title{
+font-size: 20px;
+    font-weight: 500;
+    padding-bottom: 2rem;
+}
+
+.cart-title a{
+  text-align: left;
+    font-weight: 700;
+  font-size:1.2rem;
+    padding-top: 0;
+   
+  color:black;
+
+}
+.cart-title div{
+  line-height: 1.6rem !Important; 
+}
+.cart-price{
+    font-weight: 700;
+  font-size:1.2rem;
+    padding-top: 0;
+    line-height: 1.2;
+  color:black;
+}
+.cart-delete {
+    text-align: center;
+    position: relative;
+    margin-left: auto !Important;
+    margin-right: auto  !Important;
+  padding-top:.5rem;
+  font-size:1.2rem;
+  color: #f4949b;
+  padding-left: 0.8rem;
+}
+
+.cart-quantity{
+  
+}
+.cart-drawer .my-cart__items{
+  padding-bottom:7rem;
+}
+.my-cart__app-container {
+    position: fixed;
+    bottom: 0px;
+  
+    width: 89%;
+  background-color:white;
+  z-index: 1;
+  padding-right: 1rem;
+}
+
+
+
+#shopify-section-drawer .quantity {
+  color: rgba(var(--color-foreground));
+  position: relative;
+  width: calc(11rem / var(--font-body-scale) + var(--inputs-border-width) * 2);
+  display: flex;
+  border-radius: var(--inputs-radius);
+  min-height: calc((var(--inputs-border-width) * 2) + 3rem);
+}
+
+#shopify-section-drawer .cart__checkout-button{
+  max-width:100%;
+      padding: 10px 35px;
+  font-size:18px;
+  margin: 0 0 15px;
+  color:white;
+      letter-spacing: 1px;
+  cursor: pointer;
+    pointer-events: auto;
+}
+
+.cart-subtotal_header{
+  width: auto;
+    text-align: left;
+    text-transform: inherit;
+  font-weight: 600;
+    font-size: 16px;
+}
+
+.cart-subtotal{
+    width: auto;
+    text-align: right;
+    font-weight: 600;
+    font-size: 16px;
+  
+}
+.cart-checkout{
+  display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    border-bottom: 1px solid #6E7D85;
+    margin-bottom: 15px;
+}
+
+@media screen and (max-width: 600px) {
+  .drawer__wrapper {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  height: 100%;
+  width: 100%;
+  max-width: 350px;
+  z-index: 9999;
+  overflow: auto;
+  transition: transform 0.3s;
+  will-change: transform;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  -webkit-transform: translateX(103%);
+  transform: translateX(103%);
+  -webkit-overflow-scrolling: touch;
+  box-shadow: 0 2px 6px #777;
+}
+  
+#shopify-section-drawer  .quantity__button {
+    width: calc(2rem / var(--font-body-scale));
+      
+      }
+
+#shopify-section-drawer .quantity {
+  color: rgba(var(--color-foreground));
+  position: relative;
+  width: calc(7.5rem / var(--font-body-scale) + var(--inputs-border-width) * 2);
+  display: flex;
+  border-radius: var(--inputs-radius);
+  min-height: calc((var(--inputs-border-width) * 2) + 3rem);
+}
+#shopify-section-drawer  .quantity__input{
+ font-size:1.1rem; 
+}
+  #shopify-section-drawer .quantity__input[type=number] {
+    vertical-align: middle;
+    position: relative;
+ 
+}
+  .my-cart__app-container {
+    position: fixed;
+    bottom: 0px;
+    width: 83%;
+    left: 0px;
+    width: 93%;
+    padding-left: 1rem;
+    padding-right: 0.5rem;
+}
+  .cart-delete {
+    
+  padding-left: 1.2rem;
+}
+  
+}

@@ -1,0 +1,185 @@
+<div class="reviews-section">
+  <div class="page-width">
+      {%- if section.settings.title != blank -%}
+      <div class="section__title">
+        <h2 class="title {{ section.settings.heading_size }}">{{ section.settings.title }}</h2>
+      </div>
+      {%- endif -%}   
+  <div class="custom-reviews-wrap">
+    <div class="custom-reviews-slider">
+      {% for block in section.blocks %}
+      <div>
+        <div class="crs-item">          
+        <div class="crs-item-box">  
+		  {%- if block.settings.image != blank -%}
+          <img
+            srcset="{%- if block.settings.image.width >= 165 -%}{{ block.settings.image | image_url: width: 165 }} 165w,{%- endif -%}
+              {%- if block.settings.image.width >= 360 -%}{{ block.settings.image | image_url: width: 360 }} 360w,{%- endif -%}
+              {%- if block.settings.image.width >= 535 -%}{{ block.settings.image | image_url: width: 535 }} 535w,{%- endif -%}
+              {%- if block.settings.image.width >= 750 -%}{{ block.settings.image | image_url: width: 750 }} 750w,{%- endif -%}
+              {%- if block.settings.image.width >= 1070 -%}{{ block.settings.image | image_url: width: 1070 }} 1070w,{%- endif -%}
+              {%- if block.settings.image.width >= 1500 -%}{{ block.settings.image | image_url: width: 1500 }} 1500w,{%- endif -%}
+              {{ block.settings.image | image_url }} {{ block.settings.image.width }}w"
+            src="{{ block.settings.image | image_url: width: 1500 }}"
+            sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 2 }}px, (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)"
+            alt="{{ block.settings.image.alt | escape }}"
+            loading="lazy"
+            
+                     	{% if blur %}
+		data-lowsrc="{{ src }}"
+		data-blur="true"
+		{% endif %}
+		data-aspectratio="{% if force_aspect %}{{ force_aspect }}{% else %}{{ responsive-image.aspect_ratio }}{% endif %}"
+		{% if force_height %}
+		data-force-height="{{ force_height }}"
+		{% endif %}
+		style="{% unless allow_stretch %}max-width: {{ responsive-image.width }}px; max-height: {{ responsive-image.height }}px; {% endunless %}{{ styles }}"
+		{{ props }}
+		{% if alt %}
+		alt="{{ alt | escape }}"
+		{% else %}
+		alt=""
+		{% endif %}
+          >
+          {% endif %}
+          
+          <div class="crs-title-stars">
+            <div><b>{{ block.settings.name }}</b></div>
+            <div class="crs-stars">
+              <span>{% include 'icon-star' %}</span>
+              <span>{% include 'icon-star' %}</span>
+              <span>{% include 'icon-star' %}</span>
+              <span>{% include 'icon-star' %}</span>
+              <span>{% include 'icon-star' %}</span>
+            </div>
+          </div>
+          <div class="crs-details">
+            <div><b>{{ block.settings.title }}</b></div>
+            {{ block.settings.text }}
+          </div>
+          {% if block.settings.product != blank %}
+          {% assign product = all_products[block.settings.product] %}
+          <div class="crs-prod">
+            <a href="{{ product.url }}">
+              <div class="crs-prod-box">
+                <div class="crs-prod-img">
+                  {% assign image = product.featured_image %}                  
+                  <img
+                       srcset="{%- if image.width >= 165 -%}{{ image | image_url: width: 165 }} 165w,{%- endif -%}
+                               {%- if image.width >= 360 -%}{{ image | image_url: width: 360 }} 360w,{%- endif -%}
+                               {%- if image.width >= 535 -%}{{ image | image_url: width: 535 }} 535w,{%- endif -%}
+                               {%- if image.width >= 750 -%}{{ image | image_url: width: 750 }} 750w,{%- endif -%}
+                               {%- if image.width >= 1070 -%}{{ image | image_url: width: 1070 }} 1070w,{%- endif -%}
+                               {%- if image.width >= 1500 -%}{{ image | image_url: width: 1500 }} 1500w,{%- endif -%}
+                               {{ image | image_url }} {{ image.width }}w"
+                       src="{{ image | image_url: width: 1500 }}"
+                       sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 2 }}px, (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)"
+                       alt="{{ image.alt | escape }}"
+                       loading="lazy"
+                       width="{{ image.width }}"
+                       height="{{ image.height }}"
+                       >
+                </div>
+                <div class="crs-prod-cont">
+                  <h4>{{ product.title }}</h4>
+                  <div class="quick-add-wrapper{% if product.variants.size == 1 %} is-singular{% endif %}">
+                    {% if product.variants.size > 1 and product.available %}
+                    <span class="quick-add-button" href="{{ product.url | within: collection }}">View Options</span>
+                    {% elsif product.available %}
+                    <span class="quick-add-button" href="{{ product.url | within: collection }}">Add to Cart</span>
+                    {% else %}
+                    <span class="sold-out-button" href="{{ product.url | within: collection }}">Sold Out</span>
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+          {% endif %}
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    <div class="custom-reviews-slide-dots">
+      {% for block in section.blocks %}
+      <div class="custom-reviews-slide-dot"><span></span></div>
+      {% endfor %}
+    </div>
+    
+  </div>
+</div>
+</div>
+
+{% schema %}
+  {
+    "name": "Custom Reviews",
+    "class": "section",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "default": "Reviews",
+        "label": "Heading"
+      },
+      {
+        "type": "select",
+        "id": "heading_size",
+        "options": [
+          {
+            "value": "h2",
+            "label": "t:sections.all.heading_size.options__1.label"
+          },
+          {
+            "value": "h1",
+            "label": "t:sections.all.heading_size.options__2.label"
+          },
+          {
+            "value": "h0",
+            "label": "t:sections.all.heading_size.options__3.label"
+          }
+        ],
+        "default": "h1",
+        "label": "t:sections.all.heading_size.label"
+      }
+	],
+    "blocks": [
+      {
+        "type": "image",
+        "name": "Review",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+          },
+          {
+            "type": "text",
+            "id": "name",
+            "label": "Name"
+          },
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Title"
+          },
+          {
+            "type": "textarea",
+            "id": "text",
+            "label": "Text"
+          },
+          {
+            "type": "product",
+            "id": "product",
+            "label": "Product"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Custom Reviews"
+      }
+    ]
+  }
+{% endschema %}

@@ -1,0 +1,91 @@
+
+{{ 'charity.css' | asset_url | stylesheet_tag }}
+
+<div class="charity-page-banner" {% if section.settings.image != blank %} style="background-image:url({{ section.settings.image | img_url: 'master' }})" {% endif %}>
+  <div class="charity-page-banner-wrap">
+    {% if section.settings.text != blank %}
+    <div class="charity-banner-text">
+      {{ section.settings.text }}
+    </div>
+    {% endif %}
+    
+    <div class="homepage-sections-wrapper homepage-sections-wrapper--white">
+    <div data-wetheme-section-type="video--video">
+      
+   
+      
+              
+              
+              <div class="video-module-player" data-section-type="video" >
+
+          <video id="video" class="video" {% if section.settings.video_controls == true %}controls{% else %}  {% endif %}  playinline=="" src="{{section.settings.url}}" disablepictureinpicture autoplay muted loop>
+          <!--<source src="{{section.settings.url}}" type="video/mp4" >
+          <source src="{{section.settings.url}}" type="video/webm">-->
+        </video>
+  
+      </div>   
+    
+
+
+    </div>
+    
+  </div>
+</div>
+</div>
+<style>
+  .homepage-video-content-overlay-wrapper-{{ section.id }}::before {
+        background: #ddd;
+      }
+  
+
+
+</style>
+
+  <script>
+var video = document.getElementById($parameters.VideoElementId);
+
+if (video!=null) {
+
+    var videoElement = video.querySelector("video");
+
+    videoElement.disablePictureInPicture= true;
+
+    videoElement.controlsList = "nodownload";
+
+}
+</script>
+{% schema %}
+  {
+    "name": "Charity Banner",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Background Image"
+      },
+      {
+        "type": "richtext",
+        "id": "text",
+        "label": "Text"
+      },
+  		{
+        "type": "checkbox",
+        "id": "video_controls",
+        "label": "Video Controls",
+        "default": false,
+        "info": "Text"
+        },
+        {
+           "id": "url",
+    	"type": "url",
+    	"label": "Video URL for Desktop"
+        }
+	],
+	"presets" : [
+	  {
+		"name": "Charity Banner"
+	  }
+	]
+	
+  }
+{% endschema %}

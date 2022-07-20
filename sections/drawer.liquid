@@ -1,0 +1,66 @@
+
+
+<section class="drawer" id="drawer-name" data-drawer-target>
+  <div class="drawer__overlay" data-drawer-close tabindex="-1" data-ajax-cart-toggle-class-button="js-my-cart-open | remove" aria-label="Close Drawer"></div>
+  <div class="drawer__wrapper">
+    <div class="drawer__header">
+      <div class="drawer__title">
+        
+      </div>
+      <button class="drawer__close" data-ajax-cart-toggle-class-button="js-my-cart-open | remove"  data-drawer-close aria-label="Close Drawer"></button>
+    </div>
+    <div class="drawer__content" id="cart__drawer">
+      <div id="cart__drawer_items">
+      </div>
+      <div >
+        
+        
+        {% render 'main-cart-items-drawer' %}
+      
+        
+        
+        
+        
+      </div>
+      
+      
+    </div>
+  </div>
+</section>
+
+
+<script>
+  fetch('/cart.js')
+  .then((resp) => resp.json())
+  .then((data) => {
+    
+    if(data.items.length > 0) {
+        data.items.forEach(function(product, index) { 
+          document.getElementById('drawer_cart_items').innerHTML = '<img src="' + product.featured_image.url + '" alt="' + product.featured_image.alt + '"><h5>' + product.title + '</h5><p>' + product.quantity + ' x ' + theme.Currency.formatMoney(product.line_price, theme.moneyFormat) + '</p>';
+      	});
+    } else {
+      document.getElementById('drawer_cart_items').innerHTML = '<p>Cart is empty</p>';
+      document.getElementById('drawer_checkout_btn').setAttribute('disabled', 'disabled');
+      document.getElementById('drawer_checkout_btn').style.pointerEvents = 'none';
+    }
+    
+    document.getElementById('drawer_total_amount').innerHTML = theme.Currency.formatMoney(data.total_price, theme.moneyFormat);
+    
+  });
+</script>
+
+
+
+ <script type="application/json" data-ajax-cart-configuration >
+  {
+    "addToCartCssClass": "js-my-cart-open"
+  }
+</script>
+
+{% comment %}Speed optimization code start{% endcomment %}
+{% if template contains "index" %}
+<style type="text/css">
+@media (max-width:1500px) and (min-width:1200px) {#MainContent{min-height:2000px;}}
+</style>
+{% endif %}
+{% comment %}Speed optimization code end{% endcomment %}

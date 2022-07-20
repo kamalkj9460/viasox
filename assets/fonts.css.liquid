@@ -1,0 +1,48 @@
+@font-face {
+  font-family: 'Spartan';
+  src: url('Spartan-Bold.eot');
+  src: url('Spartan-Bold.eot?#iefix') format('embedded-opentype'),
+    url('Spartan-Bold.woff2') format('woff2'),
+    url('Spartan-Bold.woff') format('woff'),
+    url('Spartan-Bold.ttf') format('truetype'),
+    url('Spartan-Bold.svg#Spartan-Bold') format('svg');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Spartan-Regular';
+  src:url('Spartan-Regular.woff') format('woff'),
+    url('Spartan-Regular.woff2') format('woff2'),
+    url('Spartan-Regular.svg#Spartan-Regular') format('svg'),
+    url('Spartan-Regular.eot'),
+    url('Spartan-Regular.eot?#iefix') format('embedded-opentype'),
+    url('Spartan-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'MADE TOMMY';
+  src: url('MADETOMMY-Bold.eot');
+  src: url('MADETOMMY-Bold.eot?#iefix') format('embedded-opentype'),
+    url('MADETOMMY-Bold.woff2') format('woff2'),
+    url('MADETOMMY-Bold.woff') format('woff'),
+    url('MADETOMMY-Bold.ttf') format('truetype'),
+    url('MADETOMMY-Bold.svg#MADETOMMY-Bold') format('svg');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+{%- liquid
+      assign body_font_bold = settings.type_body_font | font_modify: 'weight', 'bold'
+      assign body_font_italic = settings.type_body_font | font_modify: 'style', 'italic'
+      assign body_font_bold_italic = body_font_bold | font_modify: 'style', 'italic'
+%}
+
+{{ settings.type_body_font | font_face: font_display: 'swap' }}
+{{ body_font_bold | font_face: font_display: 'swap' }}
+{{ body_font_italic | font_face: font_display: 'swap' }}
+{{ body_font_bold_italic | font_face: font_display: 'swap' }}
+{{ settings.type_header_font | font_face: font_display: 'swap' }}

@@ -1,0 +1,571 @@
+{{ 'section-blog-post.css' | asset_url | stylesheet_tag }}
+   <script src="{{ 'sticky-sidebar.js' | asset_url }}"></script>
+
+
+
+<div class="container">
+<div class="row">
+  
+  
+  
+<article class="article-template col-xs-12 col-md-8" itemscope itemtype="http://schema.org/BlogPosting">
+  {%- for block in section.blocks -%}
+    {%- case block.type -%}
+      {%- when '@app' -%}
+        <div class="page-width page-width--narrow">
+          {% render block %}
+        </div>
+      {%- when 'featured_image'-%}
+        {%- if article.image -%}
+          <div class="article-template__hero-container page-width page-width--narrow" {{ block.shopify_attributes }}>
+            <div class="article-template__hero-{{ block.settings.image_height }} media"
+              itemprop="image"
+              
+            >
+              <img
+                srcset="{% if article.image.width >= 350 %}{{ article.image | image_url: width: 350 }} 350w,{% endif %}
+                  {% if article.image.width >= 750 %}{{ article.image | image_url: width: 750 }} 750w,{% endif %}
+                  {% if article.image.width >= 1100 %}{{ article.image | image_url: width: 1100 }} 1100w,{% endif %}
+                  {% if article.image.width >= 1500 %}{{ article.image | image_url: width: 1500 }} 1500w,{% endif %}
+                  {% if article.image.width >= 2200 %}{{ article.image | image_url: width: 2200 }} 2200w,{% endif %}
+                  {% if article.image.width >= 3000 %}{{ article.image | image_url: width: 3000 }} 3000w,{% endif %}
+                  {{ article.image | image_url }} {{ article.image.width }}w"
+                sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 }}px, (min-width: 750px) calc(100vw - 10rem), 100vw"
+                src="{{ article.image | image_url: width: 1100 }}"
+                loading="lazy"
+                width="{{ article.image.width }}"
+                height="{{ article.image.height }}"
+                alt="{{ article.image.alt | escape }}">
+            </div>
+          </div>
+        {%- endif -%}
+
+        {%- when 'title'-%}
+          <header class="page-width page-width--narrow" {{ block.shopify_attributes }}>
+            <h1 class="article-template__title" itemprop="headline">{{ article.title | escape }}</h1>
+            {%- if block.settings.blog_show_date -%}
+              <span class="circle-divider caption-with-letter-spacing" itemprop="dateCreated pubdate datePublished">{{ article.published_at | time_tag: format: 'date' }}</span>
+            {%- endif -%}
+            {%- if block.settings.blog_show_author -%}
+              <span class="caption-with-letter-spacing" itemprop="author" itemscope itemtype="http://schema.org/Person">
+                <span itemprop="name">{{ article.author }}</span>
+              </span>
+            {%- endif -%}
+          </header>
+  
+  			<div class="social-buttons">
+              
+  				 <ul class="center list-unstyled list-social" role="list">
+                   <span class="social-share">Share via </span>
+            {%- if  section.settings.social_facebook_link != blank -%}
+              <li class="list-social__item">
+                <a target="_blank" href="{{  section.settings.social_facebook_link }}" class="link list-social__link" >
+                  <svg width="13" height="24" viewBox="0 0 13 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M0.87101 12.7537H3.39216V23.1329C3.39216 23.3379 3.55819 23.5039 3.76313 23.5039H8.03785C8.24278 23.5039 8.40882 23.3379 8.40882 23.1329V12.8026H11.3071C11.4956 12.8026 11.6542 12.6612 11.6757 12.474L12.1159 8.65291C12.1279 8.5478 12.0947 8.4425 12.0243 8.36362C11.9539 8.28469 11.8532 8.2395 11.7474 8.2395H8.409V5.84422C8.409 5.12219 8.79775 4.75603 9.56466 4.75603C9.67395 4.75603 11.7474 4.75603 11.7474 4.75603C11.9523 4.75603 12.1184 4.58991 12.1184 4.38507V0.877611C12.1184 0.672678 11.9523 0.506646 11.7474 0.506646H8.73922C8.71801 0.505613 8.67089 0.503906 8.60144 0.503906C8.07949 0.503906 6.26523 0.606373 4.83209 1.92479C3.24419 3.38582 3.46494 5.13513 3.51767 5.43844V8.23941H0.870965C0.666032 8.23941 0.5 8.40544 0.5 8.61037V12.3827C0.500045 12.5876 0.666076 12.7537 0.87101 12.7537Z" fill="#48C2FF"/>
+                  </svg>
+                  <span class="visually-hidden">{{ 'general.social.links.facebook' | t }}</span>
+                </a>
+              </li>
+            {%- endif -%}
+            {%- if section.settings.social_pinterest_link != blank -%}
+              <li class="list-social__item">
+                <a target="_blank" href="{{  section.settings.social_pinterest_link }}" class="link list-social__link" >
+                  <svg width="20" height="24" viewBox="0 0 20 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M10.1561 0.503906C3.8524 0.503906 0.5 4.54346 0.5 8.94816C0.5 10.9909 1.64143 13.5383 3.46857 14.3462C3.74602 14.4713 3.89696 14.4181 3.95878 14.1608C4.01341 13.9653 4.25348 13.0237 4.36992 12.5795C4.40586 12.4371 4.38717 12.3135 4.27217 12.1798C3.66552 11.4783 3.18393 10.2003 3.18393 9.00135C3.18393 5.92928 5.62635 2.94633 9.78235 2.94633C13.3763 2.94633 15.8906 5.28093 15.8906 8.6204C15.8906 12.394 13.8938 15.0046 11.299 15.0046C9.86285 15.0046 8.7933 13.8776 9.13257 12.4831C9.54228 10.8227 10.3459 9.03729 10.3459 7.8398C10.3459 6.76594 9.73922 5.87752 8.50004 5.87752C7.03804 5.87752 5.85205 7.32515 5.85205 9.26874C5.85205 10.5036 6.28907 11.3374 6.28907 11.3374C6.28907 11.3374 4.84288 17.1797 4.57406 18.2708C4.11979 20.118 4.63587 23.1096 4.68044 23.3669C4.70775 23.5093 4.86732 23.5538 4.95645 23.4374C5.09877 23.2505 6.84684 20.7563 7.33705 18.9536C7.51531 18.2966 8.24703 15.6328 8.24703 15.6328C8.72861 16.5026 10.1187 17.2314 11.5994 17.2314C16.0041 17.2314 19.1869 13.3601 19.1869 8.55571C19.1711 3.94975 15.2293 0.503906 10.1561 0.503906Z" fill="#48C2FF"/>
+                  </svg>
+                  <span class="visually-hidden">{{ 'general.social.links.pinterest' | t }}</span>
+                </a>
+              </li>
+            {%- endif -%}
+            {%- if  section.settings.social_twitter_link != blank -%}
+              <li class="list-social__item">
+                <a target="_blank" href="{{ section.settings.social_twitter_link }}" class="link list-social__link" >
+                  <svg width="24" height="20" viewBox="0 0 24 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M23.5 2.71622C22.6447 3.09141 21.7333 3.34009 20.7831 3.46084C21.7606 2.87722 22.5067 1.96009 22.8574 0.854656C21.9461 1.39803 20.9398 1.78184 19.8674 1.99603C19.0021 1.07459 17.7687 0.503906 16.4232 0.503906C13.8127 0.503906 11.7111 2.62278 11.7111 5.22034C11.7111 5.59409 11.7427 5.95347 11.8203 6.29559C7.90025 6.10441 4.43156 4.22559 2.10137 1.36353C1.69456 2.06934 1.45594 2.87722 1.45594 3.74691C1.45594 5.37991 2.29688 6.82747 3.55037 7.66553C2.79281 7.65116 2.04962 7.43122 1.42 7.08478C1.42 7.09916 1.42 7.11784 1.42 7.13653C1.42 9.42791 3.05444 11.3312 5.19775 11.7696C4.81394 11.8745 4.39562 11.9248 3.9615 11.9248C3.65963 11.9248 3.35487 11.9076 3.06881 11.8443C3.67975 13.7117 5.41338 15.0845 7.47475 15.129C5.8705 16.384 3.83356 17.1401 1.62844 17.1401C1.24175 17.1401 0.870875 17.1228 0.5 17.0754C2.58869 18.4223 5.06406 19.1914 7.7335 19.1914C16.4102 19.1914 21.154 12.0039 21.154 5.77378C21.154 5.56534 21.1468 5.36409 21.1367 5.16428C22.0726 4.50016 22.8589 3.67072 23.5 2.71622Z" fill="#48C2FF"/>
+                  </svg>
+                  <span class="visually-hidden">{{ 'general.social.links.twitter' | t }}</span>
+                </a>
+              </li>
+            {%- endif -%}            
+            {%- if  section.settings.social_instagram_link != blank -%}
+              <li class="list-social__item">
+                <a target="_blank" href="{{ section.settings.social_instagram_link }}" class="link list-social__link" >
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M16.6482 0.503906H7.35182C3.57371 0.503906 0.5 3.57762 0.5 7.35573V16.6521C0.5 20.4302 3.57371 23.5039 7.35182 23.5039H16.6482C20.4263 23.5039 23.5 20.4302 23.5 16.6521V7.35573C23.5 3.57762 20.4262 0.503906 16.6482 0.503906ZM21.1862 16.6521C21.1862 19.1583 19.1544 21.1901 16.6482 21.1901H7.35182C4.84556 21.1901 2.8138 19.1583 2.8138 16.6521V7.35573C2.8138 4.84943 4.84556 2.81771 7.35182 2.81771H16.6482C19.1544 2.81771 21.1862 4.84943 21.1862 7.35573V16.6521Z" fill="#48C2FF"/>
+                    <path d="M11.9999 6.05518C8.71981 6.05518 6.05127 8.72372 6.05127 12.0038C6.05127 15.2838 8.71981 17.9524 11.9999 17.9524C15.2799 17.9524 17.9485 15.2838 17.9485 12.0038C17.9485 8.72368 15.2799 6.05518 11.9999 6.05518ZM11.9999 15.6386C9.99241 15.6386 8.36507 14.0113 8.36507 12.0038C8.36507 9.99633 9.99245 8.36898 11.9999 8.36898C14.0073 8.36898 15.6347 9.99633 15.6347 12.0038C15.6347 14.0112 14.0073 15.6386 11.9999 15.6386Z" fill="#48C2FF"/>
+                    <path d="M17.9601 7.52513C18.7473 7.52513 19.3855 6.88696 19.3855 6.09972C19.3855 5.31249 18.7473 4.67432 17.9601 4.67432C17.1728 4.67432 16.5347 5.31249 16.5347 6.09972C16.5347 6.88696 17.1728 7.52513 17.9601 7.52513Z" fill="#48C2FF"/>
+                  </svg>
+                  <span class="visually-hidden">{{ 'general.social.links.instagram' | t }}</span>
+                </a>
+              </li>
+           {%- endif -%}
+          </ul>
+  		</div>
+        {%- when 'content'-%}
+          <div class="article-template__content page-width page-width--narrow rte" itemprop="articleBody" {{ block.shopify_attributes }}>
+              
+              {% comment %}Speed optimization code start{% endcomment %}
+              {{ article.content | replace: '<img ', '<img loading="lazy" ' }}
+              {% comment %}Speed optimization code end{% endcomment %}
+            
+          </div>
+
+        {%- when 'share' -%}
+          <div class="article-template__social-sharing page-width page-width--narrow" {{ block.shopify_attributes }}>
+            <share-button class="share-button" {{ block.shopify_attributes }}>
+              <button class="share-button__button hidden">
+                {% render 'icon-share' %}
+                {{ block.settings.share_label | escape }}
+              </button>
+              <details id="Details-{{ block.id }}-{{ section.id }}">
+                <summary class="share-button__button">
+                  {% render 'icon-share' %}
+                  {{ block.settings.share_label | escape }}
+                </summary>
+                <div id="Article-share-{{ section.id }}" class="share-button__fallback motion-reduce">
+                  <div class="field">
+                    <span id="ShareMessage-{{ section.id }}" class="share-button__message hidden" role="status">
+                    </span>
+                    <input type="text"
+                          class="field__input"
+                          id="url"
+                          value="{{ request.origin | append: article.url }}"
+                          placeholder="{{ 'general.share.share_url' | t }}"
+                          onclick="this.select();"
+                          readonly
+                    >
+                    <label class="field__label" for="url">{{ 'general.share.share_url' | t }}</label>
+                  </div>
+                  <button class="share-button__close hidden no-js-hidden">
+                    {% render 'icon-close' %}
+                    <span class="visually-hidden">{{ 'general.share.close' | t }}</span>
+                  </button>
+                  <button class="share-button__copy no-js-hidden">
+                    {% render 'icon-clipboard' %}
+                    <span class="visually-hidden">{{ 'general.share.copy_to_clipboard' | t }}</span>
+                  </button>
+                </div>
+              </details>
+            </share-button>
+            <script src="{{ 'share.js' | asset_url }}" defer="defer"></script>
+          </div>
+ 	
+    {%- endcase -%}
+  {%- endfor -%}
+
+  <div class="article-template__back element-margin-top center">
+    <a href="{{ blog.url }}" class="article-template__link link animate-arrow">
+      <span class="icon-wrap">{% render 'icon-arrow' %}</span>
+      {{ 'blogs.article.back_to_blog' | t: title: blog.title }}
+    </a>
+  </div>
+  {%- if blog.comments_enabled? -%}
+   <!-- <div class="article-template__comment-wrapper ">
+      <div id="comments" class="page-width page-width--narrow">
+        {%- if article.comments_count > 0 -%}
+          {%- assign anchorId = '#Comments-' | append: article.id -%}
+
+          <h2 id="Comments-{{ article.id }}" tabindex="-1">{{ 'blogs.article.comments' | t: count: article.comments_count }}</h2>
+          {% paginate article.comments by 5 %}
+            <div class="article-template__comments">
+              {%- if comment.status == 'pending' and comment.content -%}
+                <article id="{{ comment.id }}" class="article-template__comments-comment">
+                  {{ comment.content }}
+                  <footer class="right">
+                    <span class="circle-divider caption-with-letter-spacing">{{ comment.author }}</span>
+                  </footer>
+                </article>
+              {%- endif -%}
+
+              {%- for comment in article.comments -%}
+                <article id="{{ comment.id }}" class="article-template__comments-comment">
+                  {{ comment.content }}
+                  <footer class="right">
+                    <span class="circle-divider caption-with-letter-spacing">{{ comment.author }}</span><span class="caption-with-letter-spacing">{{ comment.created_at | time_tag: format: 'date' }}</span>
+                  </footer>
+                </article>
+              {%- endfor -%}
+              {% render 'pagination', paginate: paginate, anchor: anchorId %}
+            </div>
+          {% endpaginate %}
+        {%- endif -%}
+        {% form 'new_comment', article %}
+          {%- liquid
+            assign post_message = 'blogs.article.success'
+            if blog.moderated? and comment.status == 'unapproved'
+              assign post_message = 'blogs.article.success_moderated'
+            endif
+          -%}
+          <h2>{{ 'blogs.article.comment_form_title' | t }}</h2>
+          {%- if form.errors -%}
+            <div class="form__message" role="alert">
+              <h3 class="form-status caption-large text-body" tabindex="-1" autofocus>
+                {% render 'icon-error' %} {{ 'templates.contact.form.error_heading' | t }}
+              </h3>
+            </div>
+            <ul class="form-status-list caption-large">
+              {%- for field in form.errors -%}
+                <li>
+                  <a href="#CommentForm-{{ field }}" class="link">
+                    {%- if form.errors.translated_fields[field] contains 'author' -%}
+                      {{ 'blogs.article.name' | t }}
+                    {%- elsif form.errors.translated_fields[field] contains 'body'-%}
+                     {{ 'blogs.article.message' | t }}
+                    {%- else -%}
+                      {{ form.errors.translated_fields[field] }}
+                    {%- endif -%}
+                    {{ form.errors.messages[field] }}
+                  </a>
+                </li>
+              {%- endfor -%}
+            </ul>
+          {%- elsif form.posted_successfully? -%}
+            <div class="form-status-list form__message" role="status">
+              <h3 class="form-status" tabindex="-1" autofocus>{% render 'icon-success' %} {{ post_message | t }}</h3>
+            </div>
+          {%- endif -%}
+
+          <div{% if blog.moderated? == false %} class="article-template__comments-fields"{% endif %}>
+            <div class="article-template__comment-fields">
+              <div class="field field--with-error">
+                <input
+                  type="text"
+                  name="comment[author]"
+                  id="CommentForm-author"
+                  class="field__input"
+                  autocomplete="name"
+                  value="{{ form.author }}"
+                  aria-required="true"
+                  required
+                  {% if form.errors contains 'author' %}
+                    aria-invalid="true"
+                    aria-describedby="CommentForm-author-error"
+                  {% endif %}
+                  placeholder="{{ 'blogs.article.name' | t }}"
+                >
+                <label class="field__label" for="CommentForm-author">{{ 'blogs.article.name' | t }} <span aria-hidden="true">*</span></label>
+                {%- if form.errors contains 'author' -%}
+                  <small id="CommentForm-author-error">
+                    <span class="form__message">{% render 'icon-error' %}{{ 'blogs.article.name' | t }} {{ form.errors.messages['author'] }}.</span>
+                  </small>
+                {%- endif -%}
+              </div>
+              <div class="field field--with-error">
+                <input
+                  type="email"
+                  name="comment[email]"
+                  id="CommentForm-email"
+                  autocomplete="email"
+                  class="field__input"
+                  value="{{ form.email }}"
+                  autocorrect="off"
+                  autocapitalize="off"
+                  aria-required="true"
+                  required
+                  {% if form.errors contains 'email' %}
+                    aria-invalid="true"
+                    aria-describedby="CommentForm-email-error"
+                  {% endif %}
+                  placeholder="{{ 'blogs.article.email' | t }}"
+                >
+                <label class="field__label" for="CommentForm-email">{{ 'blogs.article.email' | t }} <span aria-hidden="true">*</span></label>
+                {%- if form.errors contains 'email' -%}
+                  <small id="CommentForm-email-error">
+                    <span class="form__message">{% render 'icon-error' %}{{ 'blogs.article.email' | t }} {{ form.errors.messages['email'] }}.</span>
+                  </small>
+                {%- endif -%}
+              </div>
+            </div>
+            <div class="field field--with-error">
+              <textarea
+                rows="5"
+                name="comment[body]"
+                id="CommentForm-body"
+                class="text-area field__input"
+                aria-required="true"
+                required
+                {% if form.errors contains 'body' %}
+                  aria-invalid="true"
+                  aria-describedby="CommentForm-body-error"
+                {% endif %}
+                placeholder="{{ 'blogs.article.message' | t }}"
+              >{{ form.body }}</textarea>
+                <label class="form__label field__label" for="CommentForm-body">{{ 'blogs.article.message' | t }} <span aria-hidden="true">*</span></label>
+            </div>
+            {%- if form.errors contains 'body' -%}
+              <small id="CommentForm-body-error">
+                <span class="form__message">{% render 'icon-error' %}{{ 'blogs.article.message' | t }} {{ form.errors.messages['body'] }}.</span>
+              </small>
+            {%- endif -%}
+          </div>
+          {%- if blog.moderated? -%}
+            <p class="article-template__comment-warning caption">{{ 'blogs.article.moderated' | t }}</p>
+          {%- endif -%}
+          <input type="submit" class="button" value="{{ 'blogs.article.post' | t }}">
+        {% endform %}
+      </div>
+  </div>-->
+  {%- endif -%}
+  
+  <ul class="center list-unstyled list-social" role="list">
+            {%- if  section.settings.social_facebook_link != blank -%}
+              <li class="list-social__item">
+                <a target="_blank" href="{{  section.settings.social_facebook_link }}" class="link list-social__link" >
+                  <svg width="13" height="24" viewBox="0 0 13 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M0.87101 12.7537H3.39216V23.1329C3.39216 23.3379 3.55819 23.5039 3.76313 23.5039H8.03785C8.24278 23.5039 8.40882 23.3379 8.40882 23.1329V12.8026H11.3071C11.4956 12.8026 11.6542 12.6612 11.6757 12.474L12.1159 8.65291C12.1279 8.5478 12.0947 8.4425 12.0243 8.36362C11.9539 8.28469 11.8532 8.2395 11.7474 8.2395H8.409V5.84422C8.409 5.12219 8.79775 4.75603 9.56466 4.75603C9.67395 4.75603 11.7474 4.75603 11.7474 4.75603C11.9523 4.75603 12.1184 4.58991 12.1184 4.38507V0.877611C12.1184 0.672678 11.9523 0.506646 11.7474 0.506646H8.73922C8.71801 0.505613 8.67089 0.503906 8.60144 0.503906C8.07949 0.503906 6.26523 0.606373 4.83209 1.92479C3.24419 3.38582 3.46494 5.13513 3.51767 5.43844V8.23941H0.870965C0.666032 8.23941 0.5 8.40544 0.5 8.61037V12.3827C0.500045 12.5876 0.666076 12.7537 0.87101 12.7537Z" fill="#48C2FF"/>
+                  </svg>
+                  <span class="visually-hidden">{{ 'general.social.links.facebook' | t }}</span>
+                </a>
+              </li>
+            {%- endif -%}
+            {%- if section.settings.social_pinterest_link != blank -%}
+              <li class="list-social__item">
+                <a target="_blank" href="{{  section.settings.social_pinterest_link }}" class="link list-social__link" >
+                  <svg width="20" height="24" viewBox="0 0 20 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M10.1561 0.503906C3.8524 0.503906 0.5 4.54346 0.5 8.94816C0.5 10.9909 1.64143 13.5383 3.46857 14.3462C3.74602 14.4713 3.89696 14.4181 3.95878 14.1608C4.01341 13.9653 4.25348 13.0237 4.36992 12.5795C4.40586 12.4371 4.38717 12.3135 4.27217 12.1798C3.66552 11.4783 3.18393 10.2003 3.18393 9.00135C3.18393 5.92928 5.62635 2.94633 9.78235 2.94633C13.3763 2.94633 15.8906 5.28093 15.8906 8.6204C15.8906 12.394 13.8938 15.0046 11.299 15.0046C9.86285 15.0046 8.7933 13.8776 9.13257 12.4831C9.54228 10.8227 10.3459 9.03729 10.3459 7.8398C10.3459 6.76594 9.73922 5.87752 8.50004 5.87752C7.03804 5.87752 5.85205 7.32515 5.85205 9.26874C5.85205 10.5036 6.28907 11.3374 6.28907 11.3374C6.28907 11.3374 4.84288 17.1797 4.57406 18.2708C4.11979 20.118 4.63587 23.1096 4.68044 23.3669C4.70775 23.5093 4.86732 23.5538 4.95645 23.4374C5.09877 23.2505 6.84684 20.7563 7.33705 18.9536C7.51531 18.2966 8.24703 15.6328 8.24703 15.6328C8.72861 16.5026 10.1187 17.2314 11.5994 17.2314C16.0041 17.2314 19.1869 13.3601 19.1869 8.55571C19.1711 3.94975 15.2293 0.503906 10.1561 0.503906Z" fill="#48C2FF"/>
+                  </svg>
+                  <span class="visually-hidden">{{ 'general.social.links.pinterest' | t }}</span>
+                </a>
+              </li>
+            {%- endif -%}
+            {%- if  section.settings.social_twitter_link != blank -%}
+              <li class="list-social__item">
+                <a target="_blank" href="{{ section.settings.social_twitter_link }}" class="link list-social__link" >
+                  <svg width="24" height="20" viewBox="0 0 24 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M23.5 2.71622C22.6447 3.09141 21.7333 3.34009 20.7831 3.46084C21.7606 2.87722 22.5067 1.96009 22.8574 0.854656C21.9461 1.39803 20.9398 1.78184 19.8674 1.99603C19.0021 1.07459 17.7687 0.503906 16.4232 0.503906C13.8127 0.503906 11.7111 2.62278 11.7111 5.22034C11.7111 5.59409 11.7427 5.95347 11.8203 6.29559C7.90025 6.10441 4.43156 4.22559 2.10137 1.36353C1.69456 2.06934 1.45594 2.87722 1.45594 3.74691C1.45594 5.37991 2.29688 6.82747 3.55037 7.66553C2.79281 7.65116 2.04962 7.43122 1.42 7.08478C1.42 7.09916 1.42 7.11784 1.42 7.13653C1.42 9.42791 3.05444 11.3312 5.19775 11.7696C4.81394 11.8745 4.39562 11.9248 3.9615 11.9248C3.65963 11.9248 3.35487 11.9076 3.06881 11.8443C3.67975 13.7117 5.41338 15.0845 7.47475 15.129C5.8705 16.384 3.83356 17.1401 1.62844 17.1401C1.24175 17.1401 0.870875 17.1228 0.5 17.0754C2.58869 18.4223 5.06406 19.1914 7.7335 19.1914C16.4102 19.1914 21.154 12.0039 21.154 5.77378C21.154 5.56534 21.1468 5.36409 21.1367 5.16428C22.0726 4.50016 22.8589 3.67072 23.5 2.71622Z" fill="#48C2FF"/>
+                  </svg>
+                  <span class="visually-hidden">{{ 'general.social.links.twitter' | t }}</span>
+                </a>
+              </li>
+            {%- endif -%}            
+            {%- if  section.settings.social_instagram_link != blank -%}
+              <li class="list-social__item">
+                <a target="_blank" href="{{ section.settings.social_instagram_link }}" class="link list-social__link" >
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M16.6482 0.503906H7.35182C3.57371 0.503906 0.5 3.57762 0.5 7.35573V16.6521C0.5 20.4302 3.57371 23.5039 7.35182 23.5039H16.6482C20.4263 23.5039 23.5 20.4302 23.5 16.6521V7.35573C23.5 3.57762 20.4262 0.503906 16.6482 0.503906ZM21.1862 16.6521C21.1862 19.1583 19.1544 21.1901 16.6482 21.1901H7.35182C4.84556 21.1901 2.8138 19.1583 2.8138 16.6521V7.35573C2.8138 4.84943 4.84556 2.81771 7.35182 2.81771H16.6482C19.1544 2.81771 21.1862 4.84943 21.1862 7.35573V16.6521Z" fill="#48C2FF"/>
+                    <path d="M11.9999 6.05518C8.71981 6.05518 6.05127 8.72372 6.05127 12.0038C6.05127 15.2838 8.71981 17.9524 11.9999 17.9524C15.2799 17.9524 17.9485 15.2838 17.9485 12.0038C17.9485 8.72368 15.2799 6.05518 11.9999 6.05518ZM11.9999 15.6386C9.99241 15.6386 8.36507 14.0113 8.36507 12.0038C8.36507 9.99633 9.99245 8.36898 11.9999 8.36898C14.0073 8.36898 15.6347 9.99633 15.6347 12.0038C15.6347 14.0112 14.0073 15.6386 11.9999 15.6386Z" fill="#48C2FF"/>
+                    <path d="M17.9601 7.52513C18.7473 7.52513 19.3855 6.88696 19.3855 6.09972C19.3855 5.31249 18.7473 4.67432 17.9601 4.67432C17.1728 4.67432 16.5347 5.31249 16.5347 6.09972C16.5347 6.88696 17.1728 7.52513 17.9601 7.52513Z" fill="#48C2FF"/>
+                  </svg>
+                  <span class="visually-hidden">{{ 'general.social.links.instagram' | t }}</span>
+                </a>
+              </li>
+    {%- endif -%}
+          </ul>
+</article>
+  
+  
+  <div class=" col-md-4 " >
+  <div id="blog-sidebar"  >
+	<div class="blog-sidebar-wrap">
+    <div class="blogsidebar-newsletter">
+      <div class="moblieno-subscri_text">
+        <h3>{{ section.settings.title }}</h3>
+        <p>{{ section.settings.text }}</p>
+      </div>
+      <div class="newsletter-mobilenocollect">
+        <div><script type="text/javascript" src="https://dhv2ziothpgrr.cloudfront.net/189994/form_36409.js?ver=1615578524"></script></div>
+      </div>
+    </div>
+      </div>
+    </div>
+  
+  </div>
+  
+</div> 
+</div>
+ <div class="container fb-widget">
+    <div id="comments">
+          <div id="fb-root"></div>
+          <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v8.0" nonce="ZNJnH0bH"></script>
+          <div class="fb-comments" data-href="{{ shop.url }}{{ article.url }}" data-numposts="5" data-width=""></div>
+        </div>
+</div>
+  
+  
+
+<script>   
+  $(window).ready(function(){
+    setTimeout(function(){
+		var a = new StickySidebar('#blog-sidebar', {
+			topSpacing: 40,
+			bottomSpacing: 40,
+			containerSelector: '#shopify-section-template--14868077543477__main .container',
+			innerWrapperSelector: '.blog-sidebar-wrap'
+		});
+      }, 2000);
+  });
+</script>  
+  
+  
+  
+  
+
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "Article",
+    "articleBody": {{ article.content | strip_html | json }},
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": {{ request.origin | append: page.url | json }}
+    },
+    "headline": {{ article.title | json }},
+    {% if article.excerpt != blank %}
+      "description": {{ article.excerpt | strip_html | json }},
+    {% endif %}
+    {% if article.image %}
+      "image": [
+        {{ article | image_url: width: article.image.width | prepend: "https:" | json }}
+      ],
+    {% endif %}
+    "datePublished": {{ article.published_at | date: '%Y-%m-%dT%H:%M:%SZ' | json }},
+    "dateCreated": {{ article.created_at | date: '%Y-%m-%dT%H:%M:%SZ' | json }},
+    "author": {
+      "@type": "Person",
+      "name": {{ article.author | json }}
+    },
+    "publisher": {
+      "@type": "Organization",
+      {% if settings.share_image %}
+        "logo": {
+          "@type": "ImageObject",
+          "height": {{ settings.share_image.height | json }},
+          "url": {{ settings.share_image | image_url: width: settings.share_image.width | prepend: "https:" | json }},
+          "width": {{ settings.share_image.width | json }}
+        },
+      {% endif %}
+      "name": {{ shop.name | json }}
+    }
+  }
+  </script>
+
+
+{% schema %}
+{
+  "name": "t:sections.main-article.name",
+  "tag": "section",
+  "class": "section",
+"settings": [
+	  {
+		"type" : "text",
+		"id" : "title",
+		"label" : "Title"
+	  },
+	  {
+		"type" : "text",
+		"id" : "text",
+		"label" : "Text"
+	  },
+		{
+  		  "type" : "url",
+  		  "id" : "social_facebook_link",
+  		  "label" : "Facebook link"
+  		}
+,
+
+		{
+  		  "type" : "url",
+  		  "id" : "social_pinterest_link",
+  		  "label" : "Pinetrest link"
+  		}
+,
+
+		{
+  		  "type" : "url",
+  		  "id" : "social_twitter_link",
+  		  "label" : "Twitter link"
+  		}
+,
+
+		{
+  		  "type" : "url",
+  		  "id" : "social_instagram_link",
+  		  "label" : "Instagram link"
+  		}
+
+	],
+	
+  "blocks": [
+    {
+      "type": "@app"
+    },
+    {
+      "type": "featured_image",
+      "name": "t:sections.main-article.blocks.featured_image.name",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "select",
+          "id": "image_height",
+          "options": [
+            {
+              "value": "adapt",
+              "label": "t:sections.main-article.blocks.featured_image.settings.image_height.options__1.label"
+            },
+            {
+              "value": "small",
+              "label": "t:sections.main-article.blocks.featured_image.settings.image_height.options__2.label"
+            },
+            {
+              "value": "medium",
+              "label": "t:sections.main-article.blocks.featured_image.settings.image_height.options__3.label"
+            },
+            {
+              "value": "large",
+              "label": "t:sections.main-article.blocks.featured_image.settings.image_height.options__4.label"
+            }
+          ],
+          "default": "adapt",
+          "label": "t:sections.main-article.blocks.featured_image.settings.image_height.label",
+          "info": "t:sections.main-article.blocks.featured_image.settings.image_height.info"
+        }
+      ]
+    },
+    {
+      "type": "title",
+      "name": "t:sections.main-article.blocks.title.name",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "checkbox",
+          "id": "blog_show_date",
+          "default": true,
+          "label": "t:sections.main-article.blocks.title.settings.blog_show_date.label"
+        },
+        {
+          "type": "checkbox",
+          "id": "blog_show_author",
+          "default": false,
+          "label": "t:sections.main-article.blocks.title.settings.blog_show_author.label"
+        }
+      ]
+    },
+    {
+      "type": "content",
+      "name": "t:sections.main-article.blocks.content.name",
+      "limit": 1
+    },
+    {
+      "type": "share",
+      "name": "t:sections.main-article.blocks.share.name",
+      "limit": 2,
+      "settings": [
+        {
+          "type": "text",
+          "id": "share_label",
+          "label": "t:sections.main-article.blocks.share.settings.text.label",
+          "default": "Share"
+        },
+        {
+          "type": "paragraph",
+          "content": "t:sections.main-article.blocks.share.settings.featured_image_info.content"
+        },
+        {
+          "type": "paragraph",
+          "content": "t:sections.main-article.blocks.share.settings.title_info.content"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,94 @@
+
+<div class="faq-section">
+  <div class="page-width">
+      {%- if section.settings.title != blank -%}
+      <div class="section__title">
+        <h2 class="title {{ section.settings.heading_size }}">{{ section.settings.title }}</h2>
+      </div>
+      {%- endif -%}   
+    
+    <div class="faq-list">      
+    {%- for block in section.blocks -%}
+      <div class="faq-list-item">
+        <div class="faq-que">
+          {{ block.settings.heading }}
+          <span>            
+            <svg width="40" height="41" viewBox="0 0 40 41" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <g clip-path="url(#clip0_2613_377)">
+                <circle cx="20" cy="20.8984" r="19.5" stroke="#0E2733"/>
+                <path d="M12.45 16.5209C11.6892 15.7201 10.4233 15.6877 9.6225 16.4484C8.82169 17.2092 8.78923 18.4751 9.55 19.2759L12.45 16.5209ZM20.5 27.8984L19.05 29.2759C19.4276 29.6734 19.9518 29.8984 20.5 29.8984C21.0482 29.8984 21.5724 29.6734 21.95 29.2759L20.5 27.8984ZM31.45 19.2759C32.2108 18.4751 32.1783 17.2092 31.3775 16.4484C30.5767 15.6877 29.3108 15.7201 28.55 16.5209L31.45 19.2759ZM9.55 19.2759L19.05 29.2759L21.95 26.5209L12.45 16.5209L9.55 19.2759ZM21.95 29.2759L31.45 19.2759L28.55 16.5209L19.05 26.5209L21.95 29.2759Z" fill="#0E2733"/>
+              </g>
+              <defs>
+                <clipPath id="clip0_2613_377">
+                  <rect width="40" height="40" fill="white" transform="translate(0 0.898438)"/>
+                </clipPath>
+              </defs>
+            </svg>
+          </span>
+        </div>
+        <div class="faq-ans">
+          {{ block.settings.text }}
+        </div>
+      </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "FAQs",
+    "class": "section",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "default": "FAQ",
+        "label": "Heading"
+      },
+      {
+        "type": "select",
+        "id": "heading_size",
+        "options": [
+          {
+            "value": "h2",
+            "label": "t:sections.all.heading_size.options__1.label"
+          },
+          {
+            "value": "h1",
+            "label": "t:sections.all.heading_size.options__2.label"
+          },
+          {
+            "value": "h0",
+            "label": "t:sections.all.heading_size.options__3.label"
+          }
+        ],
+        "default": "h1",
+        "label": "t:sections.all.heading_size.label"
+      }
+	],
+    "blocks": [
+      {
+        "type": "text",
+        "name": "FAQ",
+        "settings": [
+          {
+            "type": "text",
+            "id": "heading",
+            "label": "Question"
+          },
+          {
+            "type": "richtext",
+            "id": "text",
+            "label": "Answer"
+          }
+        ]
+  	  }
+    ],
+    "presets": [
+      {
+        "name": "FAQs"
+      }
+    ]
+  }
+{% endschema %}

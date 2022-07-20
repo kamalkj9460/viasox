@@ -1,0 +1,172 @@
+<div class="main-banner">
+  <div class="page-width">
+    <div class="main-banner-wrap">
+      <div class="main-banner-image">
+        <div class="Desktop">
+        {%- if section.settings.image != blank -%}
+          <img
+            srcset="{%- if section.settings.image.width >= 165 -%}{{ section.settings.image | image_url: width: 165 }} 165w,{%- endif -%}
+              {%- if section.settings.image.width >= 360 -%}{{ section.settings.image | image_url: width: 360 }} 360w,{%- endif -%}
+              {%- if section.settings.image.width >= 535 -%}{{ section.settings.image | image_url: width: 535 }} 535w,{%- endif -%}
+              {%- if section.settings.image.width >= 750 -%}{{ section.settings.image | image_url: width: 750 }} 750w,{%- endif -%}
+              {%- if section.settings.image.width >= 1070 -%}{{ section.settings.image | image_url: width: 1070 }} 1070w,{%- endif -%}
+              {%- if section.settings.image.width >= 1500 -%}{{ section.settings.image | image_url: width: 1500 }} 1500w,{%- endif -%}
+              {{ section.settings.image | image_url }} {{ section.settings.image.width }}w"
+            src="{{ section.settings.image | image_url: width: 1500 }}"
+            sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 2 }}px, (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)"
+            alt="{{ section.settings.image.alt | escape }}"
+             loading="lazy"
+            width="{{ section.settings.image.width }}"
+            height="{{ section.settings.image.height }}"
+          >
+        {%- else -%}
+          {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+        {%- endif -%}
+        </div>
+        	<div class="Mobile">
+        {%- if section.settings.image2 != blank -%}
+         
+         {% comment %}Speed optimization code start{% endcomment %}
+         <img class="main-banner-image-mobile"
+            src="{{ section.settings.image2 | image_url: width: 600 }}"
+            sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 2 }}px, (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)"
+            alt="{{ section.settings.image2.alt | escape }}"
+             loading="lazy"
+            width="{{ section.settings.image2.width }}"
+            height="{{ section.settings.image2.height }}"
+          >
+          {% comment %}Speed optimization code end{% endcomment %}    
+        
+        {%- endif -%}
+      	</div>
+      </div>
+      <div class="main-banner-content" id="main-banner-content">
+        <div class="main-banner-content-area">
+        {%- if section.settings.title != blank -%}
+        <h2>{{ section.settings.title }}</h2>
+        {%- endif -%}     
+        {%- if section.settings.text != blank -%}
+        <div class="main-banner-text">{{ section.settings.text }}</div>
+        {%- endif -%}
+        {%- if section.settings.btn-link != blank -%}
+        <div class="main-banner-btn">
+          <a class="button" href="{{ section.settings.btn-link }}">{{ section.settings.btn-text }}</a>
+        </div>
+        {%- endif -%}
+        
+          <div class="main-banner-reviews-text">
+               <div class=" yotpo bottomLine"
+    data-appkey="IU654GhrymKotQO3weIEKxubNZIaRR5d7yfbmWaT"
+    data-domain="{{shop.permanent_domain | escape }}"
+    data-product-id="{{ product.id }}"
+    data-product-models="{{ product.id }}"
+    data-name="{{ product.title | escape }}"
+    data-url="{{ shop.url }}{{ product.url }}"
+    data-image-url="{{ product.featured_image | product_img_url: 'large' |replace: '?', '%3F' | replace: '&','%26'}}"
+    data-description="{{ product.description | escape }}"
+    data-bread-crumbs="{% for tag in product.tags %}{{ tag | escape }};{% endfor %}">
+            </div>    </div>
+        
+        <div class="main-banner_slider" >
+          {% for block in section.blocks %}
+          <div class="main-banner_slide" >
+            
+            {% comment %}Speed optimization code start{% endcomment %}
+            {% if block.settings.image != blank %}<img loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" class="lazyload" data-src="{{ block.settings.image | img_url : 'master' }}">{% endif %}
+            {% comment %}Speed optimization code end{% endcomment %} 
+            
+          </div>
+          {% endfor %}
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<style>
+  #main-banner-content{
+    display:none;
+  }
+</style>
+<script>
+  
+$(document).ready(function() {
+
+    // Hide the div
+    $("#main-banner-content").delay(0).fadeIn(500);
+
+  
+});
+</script>
+{% schema %}
+  {
+    "name": "Main Banner",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image"
+      },
+ 		{
+        "type": "image_picker",
+        "id": "image2",
+        "label": "Image Mobile"
+      },
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Heading"
+      },
+      {
+        "type": "textarea",
+        "id": "text",
+        "label": "Content"
+      },
+      {
+        "type": "text",
+        "id": "btn-text",
+        "label": "Button Text"
+      },
+      {
+        "type": "url",
+        "id": "btn-link",
+        "label": "Button Link"
+      },
+      {
+        "type": "text",
+        "id": "reviews-text",
+        "label": "Reviews Text"
+      }
+	],
+	"blocks" : [
+	  {
+		"type" : "slider",
+		"name" : "Slide Image",
+		"settings" : [
+		  {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+		  }
+		]
+	  }
+	],
+	"presets" : [
+	  {
+		"name": "Main Banner"
+	  }
+	]
+  }
+{% endschema %}
+
+{% comment %}Speed optimization code start{% endcomment %}
+
+
+
+
+
+
+
+{% comment %}Speed optimization code end{% endcomment %}

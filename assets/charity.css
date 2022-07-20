@@ -1,0 +1,228 @@
+.charity-img {
+  max-width: 480px;
+  margin: 0 auto -60px;
+}
+#shopify-section-charity-how-we-help{
+  margin: -60px 0 50px;
+}
+
+.charitybox div {
+  padding: 0 8px;
+}
+.collection-main-body .wrapper,
+.site-footer .wrapper {
+  max-width: 1170px;
+}
+.charity-page-banner,
+.about-page-banner {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.charity-page-banner-wrap,
+.about-page-banner-wrap {
+  min-height: 250px;
+  padding: 80px 30px;
+  text-align: center;
+  color: #fff;
+  position:relative;
+}
+.charity-banner-text {
+  color: #fff;
+  max-width: 750px;
+  margin: auto;
+  font-family: 'Spartan', sans-serif;
+  font-size: 42px;
+  line-height: 1.5;
+  font-weight: 700;
+  text-transform: capitalize;
+  text-shadow: 3px 5px 10px rgba(0, 0, 0, 0.43);
+}
+
+#shopify-section-charity-img-txt-3 .about-featured-content-box-inner,
+#shopify-section-charity-img-txt-2 .about-featured-content-box-inner{
+  text-align: left;
+}
+
+#shopify-section-charity-img-txt-1 .featured-row__subtext p {
+  font-size: 18px;
+  font-weight: 500;
+}
+.charity-text {
+  max-width: 750px;
+  margin: 0 auto 30px;
+  font-size: 18px;
+  font-weight: 500;
+}
+#shopify-section-charity-banner-second .charity-page-banner-wrap {
+  min-height: inherit;
+  padding-top: 120px;
+  padding-bottom: 120px;
+}
+#shopify-section-charity-banner-second {
+  margin-bottom: 50px;
+}
+#shopify-section-charity-img-txt-3 {
+  background: #D9EAF4;
+}
+
+#shopify-section-charity-photos {
+  background: #2670A4;
+}
+#shopify-section-charity-photos .homepage-sections--title{
+  color: #fff;
+}
+#shopify-section-charity-impact .homepage-sections--title{
+  color: #2670A4;
+  max-width: 750px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+#shopify-section-charity-impact .shopify-section .homepage-sections-wrapper{
+  padding-bottom: 0;
+}
+.charity-impact-img img{
+  display: block;
+  margin: 0 auto;
+}
+
+.template-product #shopify-section-custom-charity.shopify-section .homepage-sections-wrapper {
+  padding-top: 0;
+}
+
+#shopify-section-charity-video {
+  margin: 50px 0 0;
+}
+
+
+
+ .video-module-player{
+    max-width: 800px;
+   padding-top:2rem;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.template-page-donations #MainContent .title, .template-page-about #MainContent .title {
+  font-size:28px;
+}
+.template-page-donations .text-and-img_content p, .template-page-about .text-and-img_content p 
+ {
+  font-size:16px;
+}
+
+.template-page-about .MainDesktop{
+  text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+.template-page-about .sizing-guide-content img{
+ max-width:400px; 
+}
+
+#shopify-section-template--14916161142837__1654723754f13a9950 .charity-banner-text{
+  position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.template-page-donations .text-and-img.text-img-reverse,  .template-page-about .text-and-img.text-img-reverse {
+    flex-direction: row-reverse;
+    box-shadow: none;
+    padding: 16px 0px;
+}
+
+#shopify-section-template--14916161142837__1654724987bf492f31 .text-and-img_content .title{
+ color:white; 
+}
+
+
+#shopify-section-template--14916161142837__165472301619f33401 .title, #shopify-section-template--14916161142837__1654724655a2603a13 .title,#shopify-section-template--14916161142837__165472301619f33401 .text-and-img_content p , #shopify-section-template--14916161142837__1654724655a2603a13 .text-and-img_content p {
+ 
+    text-align: left;
+  padding: 1rem 0vw;
+}
+
+.text-and-img_content .text-and-image-charity  p{
+  padding-top:0px !Important;
+    padding-bottom:0px!Important;
+}
+
+
+ #shopify-section-template--14916161142837__165472525202fa9702 .main-page-title{
+    font-size:36px;
+  }
+
+
+#shopify-section-template--14918942392373__165479560349c3b84e .multicolumn-list img {
+  left: 0%;
+    transform: translate(0%);
+  max-width: 150px;
+}
+#shopify-section-template--14918942392373__165479560349c3b84e .background-none .multicolumn-card__image-wrapper+.multicolumn-card__info{
+ padding-top:1rem; 
+}
+
+@media only screen and (max-width: 768px) {
+ .template-page-donations .text-and-img.text-img-reverse, .template-page-about .text-and-img.text-img-reverse {
+    flex-direction: column;
+    box-shadow: none;
+    padding: 16px 0px;
+}
+  .text-and-image-charity img{
+   display:none; 
+  }
+  .charity-banner-text{
+    font-size: 28px;
+  }
+  
+  #shopify-section-template--14916161142837__165472525202fa9702 .main-page-title , #shopify-section-template--14918942392373__165472525202fa9702 .main-page-title{
+    font-size:28px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+ .template-page-donations .text-and-img.text-img-reverse, .template-page-about .text-and-img.text-img-reverse{
+    flex-direction: column;
+    box-shadow: none;
+    padding: 16px 0px;
+	}
+  .text-and-image-charity img{
+   display:none; 
+  }
+  .charity-banner-text{
+    font-size: 24px;
+  }
+  
+  #shopify-section-template--14916161142837__165472525202fa9702 .main-page-title, #shopify-section-template--14918942392373__165472525202fa9702 .main-page-title{
+    font-size:24px;
+  }
+  .charity-page-banner-wrap, .about-page-banner-wrap {
+    min-height: 150px;
+    padding: 40px 30px;
+    
+	}
+  .template-page-donations #MainContent .title {
+    font-size: 24px;
+	}
+  .video-module-player {
+    
+    padding-top: 1rem; 
+    
+	}
+  .template-page-donations .text-and-img_content p{
+    font-size: 14px;
+ 	 }
+  #shopify-section-template--14916161142837__165472525202fa9702 img{
+ max-width:250px; 
+	}
+}

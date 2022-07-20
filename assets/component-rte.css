@@ -1,0 +1,174 @@
+.rte:after {
+  clear: both;
+  content: '';
+  display: block;
+}
+
+.rte > p:first-child {
+  margin-top: 0;
+}
+
+.rte > p:last-child {
+  margin-bottom: 0;
+}
+
+.rte table {
+  table-layout: fixed;
+}
+
+@media screen and (min-width: 750px) {
+  .rte table td {
+    padding-left: 1.2rem;
+    padding-right: 1.2rem;
+  }
+}
+
+.rte img {
+  height: auto;
+  max-width: 100%;
+  border: var(--media-border-width) solid rgba(var(--color-foreground), var(--media-border-opacity));
+  border-radius: var(--media-radius);
+  box-shadow: var(--media-shadow-horizontal-offset) var(--media-shadow-vertical-offset) var(--media-shadow-blur-radius) rgba(var(--color-shadow), var(--media-shadow-opacity));
+  margin-bottom: var(--media-shadow-vertical-offset);
+}
+
+.rte ul {
+  padding-left: 2rem;
+}
+
+.rte li {
+  list-style: inherit;
+}
+
+.rte li:last-child {
+  margin-bottom: 0;
+}
+
+.rte a {
+  color: rgba(var(--color-link), var(--alpha-link));
+  text-underline-offset: 0.3rem;
+  text-decoration-thickness: 0.1rem;
+  transition: text-decoration-thickness var(--duration-short) ease;
+}
+
+.rte a:hover {
+  color: rgb(var(--color-link));
+  text-decoration-thickness: 0.2rem;
+}
+
+.rte blockquote {
+  display: inline-flex;
+}
+
+.rte blockquote > * {
+  margin: -0.5rem 0 -0.5rem 0;
+}
+
+
+#bottom-product-seo-desc{
+ display:none; 
+  
+}
+#readmore-section{
+  
+  cursor:pointer;
+}
+.readmore-section-padding{
+  padding-bottom:36px;
+}
+.bottom-product-seo-desc
+{
+  padding-bottom:36px;
+}
+.bottom-product-seo-desc p{
+  text-align:left;
+  font-family: Montserrat;
+    font-style: normal;
+    font-weight: 500;
+    
+    line-height: 150%;
+    letter-spacing: .01em;
+}
+
+.bottom-product-seo-desc ul{
+  list-style-type: none;
+  padding-left:0px;
+}
+
+.bottom-product-seo-desc .rte ul li{
+    padding-left: 35px;
+  text-align:left;
+    background: url(blue-orange-tick.svg) no-repeat scroll left top;
+    background-size: 26px auto;
+    font-size: 14px;
+    line-height: 150%;
+    padding-bottom: 4px;
+    font-family: Spartan;
+    font-style: normal;
+    font-weight: 700;
+    letter-spacing: .01em;
+    padding-top: 7px;
+    background-position: left;
+  
+   font-family: Montserrat;
+    font-style: normal;
+    font-weight: 500;
+    
+    line-height: 150%;
+    letter-spacing: .01em;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media screen and (max-width : 1300px) {}
+
+@media screen and (max-width : 1200px) {}
+
+@media screen and (max-width : 1024px){}
+
+@media screen and (max-width : 990px) {}
+
+@media screen and (max-width : 900px) {}
+
+@media screen and (max-width : 768px) {}
+
+@media screen and (max-width : 749px) {} 
+
+@media screen and (max-width : 650px) {}
+@media screen and (max-width : 550px) {}
+
+@media screen and (max-width : 480px) {} 
+
+@media screen and (max-width : 425px) {} 
+
+@media screen and (max-width : 375px) {}
+
+@media screen and (max-width : 320px) {}

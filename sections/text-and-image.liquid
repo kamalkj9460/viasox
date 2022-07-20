@@ -1,0 +1,186 @@
+<div class="text-and-image">
+  <div class="page-width">
+    <div class="text-and-img {% if section.settings.reverse %}text-img-reverse{% endif %}" style="background-color: {{ section.settings.user_color }};">
+      <div class="text-and-img_media">
+        <div class="MainDesktop">
+        {%- if section.settings.image != blank -%}
+          
+          {% comment %}Speed optimization code start{% endcomment %}
+          <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" class="lazyload"
+            data-srcset="{%- if section.settings.image.width >= 165 -%}{{ section.settings.image | image_url: width: 165 }} 165w,{%- endif -%}
+              {%- if section.settings.image.width >= 360 -%}{{ section.settings.image | image_url: width: 360 }} 360w,{%- endif -%}
+              {%- if section.settings.image.width >= 535 -%}{{ section.settings.image | image_url: width: 535 }} 535w,{%- endif -%}
+              {%- if section.settings.image.width >= 750 -%}{{ section.settings.image | image_url: width: 750 }} 750w,{%- endif -%}
+              {%- if section.settings.image.width >= 1070 -%}{{ section.settings.image | image_url: width: 1070 }} 1070w,{%- endif -%}
+              {%- if section.settings.image.width >= 1500 -%}{{ section.settings.image | image_url: width: 1500 }} 1500w,{%- endif -%}
+              {{ section.settings.image | image_url }} {{ section.settings.image.width }}w"
+            data-src="{{ section.settings.image | image_url: width: 1500 }}"
+            sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 2 }}px, (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)"
+            alt="{{ section.settings.image.alt | escape }}"
+            loading="lazy"
+            width="{{ section.settings.image.width }}"
+            height="{{ section.settings.image.height }}"
+          >
+          {% comment %}Speed optimization code end{% endcomment %}
+          
+        {%- else -%}
+          {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+        {%- endif -%}
+        </div>
+        <div class="MainMobile">
+        {%- if section.settings.imagemobile != blank -%}
+          
+          {% comment %}Speed optimization code start{% endcomment %}
+          <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" class="lazyload"
+            data-srcset="{%- if section.settings.imagemobile.width >= 165 -%}{{ section.settings.imagemobile | image_url: width: 165 }} 165w,{%- endif -%}
+              {%- if section.settings.imagemobile.width >= 360 -%}{{ section.settings.imagemobile | image_url: width: 360 }} 360w,{%- endif -%}
+              {%- if section.settings.imagemobile.width >= 535 -%}{{ section.settings.imagemobile | image_url: width: 535 }} 535w,{%- endif -%}
+              {%- if section.settings.imagemobile.width >= 750 -%}{{ section.settings.imagemobile | image_url: width: 750 }} 750w,{%- endif -%}
+              {%- if section.settings.imagemobile.width >= 1070 -%}{{ section.settings.imagemobile | image_url: width: 1070 }} 1070w,{%- endif -%}
+              {%- if section.settings.imagemobile.width >= 1500 -%}{{ section.settings.imagemobile | image_url: width: 1500 }} 1500w,{%- endif -%}
+              {{ section.settings.imagemobile | image_url }} {{ section.settings.imagemobile.width }}w"
+            data-src="{{ section.settings.imagemobile | image_url: width: 1500 }}"
+            
+            alt="{{ section.settings.imagemobile.alt | escape }}"
+            loading="lazy"
+            width="{{ section.settings.imagemobile.width }}"
+            height="{{ section.settings.imagemobile.height }}"
+          >
+          {% comment %}Speed optimization code end{% endcomment %}
+          
+        {%- else -%}
+          {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+        {%- endif -%}
+        </div>
+      </div>
+      <div class="text-and-img_content center">
+        <h2 class="title h1">{{ section.settings.title }}</h2>
+        <p>{{ section.settings.text }}</p>
+        <a href="{{ section.settings.btnlink }}" class="button">{{ section.settings.btn }}</a>
+        
+        
+        {% if section.settings.charity %}
+        <div class="row text-and-image-charity">
+        <div class="col-xs-12 col-sm-4">
+          <img
+            srcset="{%- if section.settings.charityimage.width >= 165 -%}{{ section.settings.charityimage | image_url: width: 165 }} 165w,{%- endif -%}
+              {%- if section.settings.charityimage.width >= 360 -%}{{ section.settings.charityimage | image_url: width: 360 }} 360w,{%- endif -%}
+              {%- if section.settings.charityimage.width >= 535 -%}{{ section.settings.charityimage | image_url: width: 535 }} 535w,{%- endif -%}
+              {%- if section.settings.charityimage.width >= 750 -%}{{ section.settings.charityimage | image_url: width: 750 }} 750w,{%- endif -%}
+              {%- if section.settings.charityimage.width >= 1070 -%}{{ section.settings.charityimage | image_url: width: 1070 }} 1070w,{%- endif -%}
+              {%- if section.settings.charityimage.width >= 1500 -%}{{ section.settings.charityimage | image_url: width: 1500 }} 1500w,{%- endif -%}
+              {{ section.settings.charityimage | image_url }} {{ section.settings.charityimage.width }}w"
+            src="{{ section.settings.charityimage | image_url: width: 1500 }}"
+            
+            alt="{{ section.settings.charityimage.alt | escape }}"
+            loading="lazy"
+            
+                  	{% if blur %}
+		data-lowsrc="{{ src }}"
+		data-blur="true"
+		{% endif %}
+		data-aspectratio="{% if force_aspect %}{{ force_aspect }}{% else %}{{ responsive-image.aspect_ratio }}{% endif %}"
+		{% if force_height %}
+		data-force-height="{{ force_height }}"
+		{% endif %}
+		style="{% unless allow_stretch %}max-width: {{ responsive-image.width }}px; max-height: {{ responsive-image.height }}px; {% endunless %}{{ styles }}"
+		{{ props }}
+		{% if alt %}
+		alt="{{ alt | escape }}"
+		{% else %}
+		alt=""
+		{% endif %}
+          >
+        
+        </div>
+        <div class="col-xs-12 col-sm-8">
+          {{ section.settings.charitytext}}
+        </div>
+        </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Text and Image",
+    "settings": [
+	  {
+        "type": "color",
+        "id": "user_color",
+        "label": "background-color",
+        "default": "#FFFFFF"
+      },
+	  {
+		"type" : "image_picker",
+		"id" : "image",
+		"label" : "Image"
+	  },
+		 {
+		"type" : "image_picker",
+		"id" : "imagemobile",
+		"label" : "Mobile Image"
+	  },
+
+	  {
+		"type" : "text",
+		"id" : "title",
+		"label" : "Title"
+	  },
+	  {
+		"type" : "richtext",
+		"id" : "text",
+		"label" : "Text"
+	  },
+	  {
+		"type" : "text",
+		"id" : "btn",
+		"label" : "Button"
+	  },
+	  {
+		"type" : "url",
+		"id" : "btnlink",
+		"label" : "Button Link"
+	  },
+	  {
+        "type": "checkbox",
+        "id": "reverse",
+        "default": false,
+        "label": "Image Second"
+  	  },
+		{
+		"type" : "image_picker",
+		"id" : "charityimage",
+		"label" : "Charity Image"
+	  },
+		{
+		"type" : "richtext",
+		"id" : "charitytext",
+		"label" : "Text"
+	  },
+		{
+        "type": "checkbox",
+        "id": "charity",
+        "default": false,
+        "label": "Small Image and Text"
+  	  }
+	],
+	"presets" : [
+	  {
+		"name" : "Text and Image"
+	  }
+	]
+  }
+{% endschema %}
+
+{% comment %}Speed optimization code start{% endcomment %}
+
+
+
+
+
+
+
+{% comment %}Speed optimization code end{% endcomment %}
