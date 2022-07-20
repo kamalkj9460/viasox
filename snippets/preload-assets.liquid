@@ -1,18 +1,17 @@
+{% comment %}
 {% if template contains "index" %}
-<link rel="preload" href="https://cdn.shopify.com/s/files/1/0253/3641/4261/files/main-banner.png?v=1652935954" as="image" media="(min-width: 1000px)">
-<link rel="preload" href="https://cdn.shopify.com/s/files/1/0253/3641/4261/files/main-banner_-_Mobile_1cecc436-01d2-47c0-8489-217fb7e9978c.png?v=1655999764&width=600" as="image" media="(max-width: 1000px)">
+	<link rel="preload" href="https://cdn.shopify.com/s/files/1/0253/3641/4261/files/main-banner.png?v=1652935954" as="image" media="(min-width: 1000px)">
+	<link rel="preload" href="https://cdn.shopify.com/s/files/1/0253/3641/4261/files/main-banner_-_Mobile_1cecc436-01d2-47c0-8489-217fb7e9978c.png?v=1655999764&width=600" as="image" media="(max-width: 1000px)">
 {% endif %}
 
 {% if template contains 'collection' %}
-<link rel="preload" as="image" href="https:{{ collection.products[0].featured_media.preview_image | img_url: '360x' }}">
-<link rel="preload" as="image" href="https:{{ collection.products[1].featured_media.preview_image | img_url: '360x' }}">
+	<link rel="preload" as="image" href="https:{{ collection.products[0].featured_media.preview_image | img_url: '360x' }}">
+	<link rel="preload" as="image" href="https:{{ collection.products[1].featured_media.preview_image | img_url: '360x' }}">
 {% endif %}
-
 <link rel="preload" href="{{ 'bootstrapcustom.css' | asset_url }}" as="style" onload="this.rel='stylesheet'">
 <link rel="preload" href="{{ 'base.css' | asset_url }}" as="style" onload="this.rel='stylesheet'">
 <link rel="preload" href="{{ 'custom.css' | asset_url }}" as="style" onload="this.rel='stylesheet'">
 <link rel="preload" href="{{ 'drawer.css' | asset_url }}" as="style" onload="this.rel='stylesheet'">
-
 <link rel="preload" href="{{ 'section-footer.css' | asset_url }}" as="style" onload="this.rel='stylesheet'">
 <link rel="preload" href="{{ 'component-cart.css' | asset_url }}" as="style" onload="this.rel='stylesheet'">
 <link rel="preload" href="{{ 'component-cart-items.css' | asset_url }}" as="style" onload="this.rel='stylesheet'">
@@ -20,7 +19,6 @@
 <link rel="preload" href="{{ 'component-price.css' | asset_url }}" as="style" onload="this.rel='stylesheet'">
 <link rel="preload" href="{{ 'component-discounts.css' | asset_url }}" as="style" onload="this.rel='stylesheet'">
 <link rel="preload" href="{{ 'component-loading-overlay.css' | asset_url }}" as="style" onload="this.rel='stylesheet'">
-
 {% if template contains "index" %}
 <link rel="preload" href="{{ 'custom-slider.css' | asset_url }}" as="style" onload="this.rel='stylesheet'">
 <link rel="preload" href="{{ 'section-main-product.css' | asset_url }}" as="style" onload="this.rel='stylesheet'">
@@ -29,14 +27,15 @@
 <link rel="preload" href="{{ 'component-rte.css' | asset_url }}" as="style" onload="this.rel='stylesheet'">
 <link rel="preload" href="{{ 'component-image-with-text.css' | asset_url }}" as="style" onload="this.rel='stylesheet'">
 {% endif %}
-
+{% endcomment %}
 {% if template contains 'collection' %}
+{% comment %}
 <link rel="preload" href="{{ 'component-collection-hero.css' | asset_url }}" as="style" onload="this.rel='stylesheet'">
 <link rel="preload" href="{{ 'template-collection.css' | asset_url }}" as="style" onload="this.rel='stylesheet'">
 <link rel="preload" href="{{ 'component-card.css' | asset_url }}" as="style" onload="this.rel='stylesheet'">
 <link rel="preload" href="{{ 'component-facets.css' | asset_url }}" as="style" onload="this.rel='stylesheet'">
 <link rel="preload" href="{{ 'component-rating.css' | asset_url }}" as="style" onload="this.rel='stylesheet'">
-
+{% endcomment %}
 <style type="text/css">
   body {
 	min-height: auto !important;
@@ -51,10 +50,9 @@
 	min-height: auto !important;
   }
 </style>
+{% comment %}
 <link rel="preload" as="image" href="https:{{ product.images[0] | img_url: 'master' }}">
 <link rel="preload" as="image" href="https://cdn.shopify.com/s/files/1/0253/3641/4261/files/14_Days_Guarantee3.png?v=1654203758">
-
-
 <link rel="preload" href="{{ 'section-main-product.css' | asset_url }}" as="style" onload="this.rel='stylesheet'">
 <link rel="preload" href="{{ 'component-accordion.css' | asset_url }}" as="style" onload="this.rel='stylesheet'">
 <link rel="preload" href="{{ 'component-rte.css' | asset_url }}" as="style" onload="this.rel='stylesheet'">
@@ -65,14 +63,15 @@
 <link rel="preload" href="{{ 'component-image-with-text.css' | asset_url }}" as="style" onload="this.rel='stylesheet'">
 <link rel="preload" href="{{ 'section-multicolumn.css' | asset_url }}" as="style" onload="this.rel='stylesheet'">
 <link rel="preload" href="{{ 'component-card.css' | asset_url }}" as="style" onload="this.rel='stylesheet'">
+{% endcomment %}
 {% endif %}
-
+{% comment %}
 <link rel="preload" as="script" href="//code.jquery.com/jquery-1.11.0.min.js">
 <link rel="preload" as="script" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js">
 <link rel="preload" as="script" href="{{ 'drawer.js' | asset_url }}">
 <link rel="preload" as="script" href="{{ 'slick.min.js' | asset_url }}">
-
-<script type="text/javascript">
+{% endcomment %}
+<script type="no-load">
   function loadCSS(filename){var l=document.createElement('link');l.rel='stylesheet';l.href=filename;var h=document.getElementsByTagName('head')[0];h.parentNode.insertBefore(l,h);}
   window.addEventListener('DOMContentLoaded', (event) => {
     setTimeout(function() {

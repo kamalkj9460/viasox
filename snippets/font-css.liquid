@@ -1,0 +1,30 @@
+<link rel="preload" href="{{'Spartan-Bold.woff2' | asset_url }}" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="{{'Spartan-Regular.woff2' | asset_url }}" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="{{'MADETOMMY-Bold.woff2' | asset_url }}" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="{{ settings.type_body_font | font_url }}" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="{{ settings.type_header_font | font_url }}" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face {
+  font-family: 'Spartan';
+  src: url("{{'Spartan-Bold.woff2' | asset_url }}") format('woff2');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Spartan-Regular';
+    src:url("{{'Spartan-Regular.woff2' | asset_url }}") format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'MADE TOMMY';
+    src: url("{{'MADETOMMY-Bold.woff2' | asset_url }}") format('woff2');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+{{ settings.type_body_font | font_face: font_display: 'swap' }}
+{{ settings.type_header_font | font_face: font_display: 'swap' }}
+</style>

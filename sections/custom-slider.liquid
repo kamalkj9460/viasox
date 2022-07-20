@@ -1,7 +1,5 @@
 {{ section.settings.custom-slider }}
-
-
-{{ 'custom-slider.css' | asset_url | stylesheet_tag }}
+<link rel="stylesheet" data-href="{{ 'custom-slider.css' | asset_url }}" as="style">
 
 <div data-section-id="{{ section.id }}" data-section-type="testimonial" class="testimonial">  
   {%- assign collection = collections[section.settings.collection] -%}   

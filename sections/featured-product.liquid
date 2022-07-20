@@ -1,9 +1,9 @@
-{{ 'section-main-product.css' | asset_url | stylesheet_tag }}
-{{ 'section-featured-product.css' | asset_url | stylesheet_tag }}
-{{ 'component-accordion.css' | asset_url | stylesheet_tag }}
-{{ 'component-price.css' | asset_url | stylesheet_tag }}
-{{ 'component-rte.css' | asset_url | stylesheet_tag }}
-{{ 'component-loading-overlay.css' | asset_url | stylesheet_tag }}
+<link rel="stylesheet" data-href="{{ 'section-main-product.css' | asset_url }}" as="style">
+<link rel="stylesheet" data-href="{{ 'section-featured-product.css' | asset_url }}" as="style">
+<link rel="stylesheet" data-href="{{ 'component-accordion.css' | asset_url }}" as="style">
+<link rel="stylesheet" data-href="{{ 'component-price.css' | asset_url }}" as="style">
+<link rel="stylesheet" data-href="{{ 'component-rte.css' | asset_url }}" as="style">
+<link rel="stylesheet" data-href="{{ 'component-loading-overlay.css' | asset_url }}" as="style">
 
 {%- style -%}
   .section-{{ section.id }}-padding {
